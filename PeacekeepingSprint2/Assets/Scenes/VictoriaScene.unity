@@ -281,11 +281,9 @@ GameObject:
   - component: {fileID: 694204556}
   - component: {fileID: 694204561}
   - component: {fileID: 694204560}
-  - component: {fileID: 694204563}
-  - component: {fileID: 694204562}
-  - component: {fileID: 694204564}
   - component: {fileID: 694204566}
   - component: {fileID: 694204565}
+  - component: {fileID: 694204562}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -318,9 +316,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 694204555}
-  selectedCommands:
-  - {fileID: 694204561}
+  - {fileID: 694204548}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -373,8 +370,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 173.57143
-    y: 125
+    x: 22.142792
+    y: 114.999985
     width: 154.28568
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -388,9 +385,6 @@ MonoBehaviour:
   - {fileID: 694204556}
   - {fileID: 694204557}
   - {fileID: 694204558}
-  - {fileID: 694204563}
-  - {fileID: 694204562}
-  - {fileID: 694204564}
   suppressAllAutoSelections: 0
 --- !u!114 &694204549
 MonoBehaviour:
@@ -496,8 +490,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 79
-    y: 195
+    x: 21.857162
+    y: 219.28568
     width: 78.57142
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -628,8 +622,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 417.44083
-    y: 124.57475
+    x: 353.15543
+    y: 11.717644
     width: 108.5714
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -707,9 +701,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 13
+  itemId: 16
   indentLevel: 0
-  storyText: You're taking too long
+  storyText: The trigger works!
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -722,43 +716,6 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
---- !u!114 &694204563
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 694204545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 12
-  indentLevel: 0
-  _duration:
-    floatRef: {fileID: 0}
-    floatVal: 2
-  durationOLD: 0
---- !u!114 &694204564
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 694204545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c43743931d28f43f89eced820d907351, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 14
-  indentLevel: 0
-  messageTarget: 1
-  _message:
-    stringRef: {fileID: 0}
-    stringVal: Post
-  messageOLD: 
 --- !u!114 &694204565
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -788,8 +745,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 487.44092
-    y: 318.8604
+    x: 530.298
+    y: 116.00337
     width: 134.28568
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -798,7 +755,8 @@ MonoBehaviour:
   blockName: you messed up
   description: 
   eventHandler: {fileID: 694204565}
-  commandList: []
+  commandList:
+  - {fileID: 694204562}
   suppressAllAutoSelections: 0
 --- !u!1001 &981777876
 PrefabInstance:
@@ -984,8 +942,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce677a398e859f4a901fa11f023dd3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FlowChart: {fileID: 694204545}
-  enetered: 0
 --- !u!135 &1541017615
 SphereCollider:
   m_ObjectHideFlags: 0

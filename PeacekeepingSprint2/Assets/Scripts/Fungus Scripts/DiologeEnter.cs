@@ -1,17 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fungus;
 
 public class DiologeEnter : MonoBehaviour
-
-    
 {
+   
 
-    public GameObject FlowChart;
-    public float enetered;
-
-    private void OnCollisionEnter(Collision hit)
+    private void OnTriggerEnter(Collider other)
     {
-        enetered = 1;
+         Fungus.Flowchart.BroadcastFungusMessage("Post");
     }
+
 }
