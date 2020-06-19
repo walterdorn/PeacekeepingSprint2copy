@@ -54,7 +54,7 @@ public class GunCollection : MonoBehaviour
         if(gunsCollected == 6)
         {
 
-            Instantiate(Logs, new Vector3(11, -2, 80), transform.rotation);
+            Instantiate(Logs, new Vector3(0, 0, 55), Quaternion.Euler(-90,0,0));
 
             gunsCollected = 0;
 
@@ -73,7 +73,7 @@ public class GunCollection : MonoBehaviour
         {
             if(BurnTicket == 1)
             {
-                Instantiate(BurningGrounds, new Vector3(6.69f, 0.22f, 91.67f), Quaternion.identity);
+                Instantiate(BurningGrounds, new Vector3(-12f, -1.27f, 68f), Quaternion.identity);
                 BurnTicket = 0;
 
             }
