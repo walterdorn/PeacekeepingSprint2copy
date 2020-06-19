@@ -33,7 +33,11 @@ public class ReputationImpact : MonoBehaviour
         else if (currentRep > 40 && currentRep < 70)
         {
 
-
+            Instantiate(object1, position1.transform.position, Quaternion.identity);
+            Instantiate(object2, position2.transform.position, Quaternion.identity);
+            Instantiate(object3, position3.transform.position, Quaternion.identity);
+            Instantiate(object4, position4.transform.position, Quaternion.identity);
+            Instantiate(object5, position5.transform.position, Quaternion.identity);
         }
 
         else if (currentRep > 70)
