@@ -50,21 +50,21 @@ public class Waypoint : MonoBehaviour
         //move the player to the waypoint position
         transform.position = Vector3.MoveTowards(transform.position, targetWaypoint.position, movementStep);
 
-        //if (targetWaypointIndex == 9 && woodGathered == false)
-       // {
-         //   movementSpeed = 0;
-         //   gatherTime -= Time.deltaTime;
-       // }
+        if (targetWaypointIndex == 21 && woodGathered == false)
+        {
+            movementSpeed = 0;
+            gatherTime -= Time.deltaTime;
+        }
 
-        //if (gatherTime <= 0.0f)
-        //{
-        //    onceWoodGathered();
-       // }
+        if (gatherTime <= 0.0f)
+        {
+            onceWoodGathered();
+        }
 
-        //if (targetWaypointIndex == 17)
-        //{
-        //    movementSpeed = 0;
-       // }
+        if (targetWaypointIndex == 41)
+        {
+            movementSpeed = 0;
+        }
     }
 
     void CheckDistanceToWaypoint(float currentDistance)
@@ -87,12 +87,12 @@ public class Waypoint : MonoBehaviour
         targetWaypoint = waypoints[targetWaypointIndex];
     }
 
-    //void onceWoodGathered()
-    //{
-      //  woodGathered = true;
-     //   movementSpeed = 4f;
-     //   gatherTime = 10000000f;
-   // }
+    void onceWoodGathered()
+    {
+      woodGathered = true;
+      movementSpeed = 4f;
+      gatherTime = 10000000f;
+    }
 
 
 }
