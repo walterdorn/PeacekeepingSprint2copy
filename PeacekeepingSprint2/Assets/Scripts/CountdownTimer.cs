@@ -8,6 +8,7 @@ public class CountdownTimer : MonoBehaviour
 
     public float currentTime = 0f;
     float startingTime = 200f;
+    bool repChange = true;
 
     [SerializeField] Text countdownText;
 
@@ -28,6 +29,14 @@ public class CountdownTimer : MonoBehaviour
         {
 
             currentTime = 0;
+
+            if (repChange == true)
+            {
+
+                GameObject.Find("ReputationBar").GetComponent<ReputationCalculation>().RepDecreaseBig();
+                repChange = false;
+            }
         }
     }
+
 }

@@ -76,8 +76,9 @@ public class GunCollection : MonoBehaviour
                 Instantiate(BurningGrounds, new Vector3(-12f, -1.27f, 68f), Quaternion.identity);
                 BurnTicket = 0;
 
+                GameObject.Find("ReputationBar").GetComponent<ReputationCalculation>().RepIncreaseBig();
             }
-           
+
         }
 
     }
