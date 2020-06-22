@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GunCollection : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class GunCollection : MonoBehaviour
     {
         CollectGuns();
         BurningGuns();
+        LoadMainScene();
     }
 
     void OnTriggerEnter(Collider other)
@@ -83,6 +85,15 @@ public class GunCollection : MonoBehaviour
 
     }
 
+    public void LoadMainScene()
+    {
+
+        if (Input.GetKey(KeyCode.B))
+        {
+
+            SceneManager.LoadScene("Main_Scene");
+        }
+    }
 
     
 }
