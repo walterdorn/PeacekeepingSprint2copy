@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fungus;
 
 public class ReputationCalculation : MonoBehaviour
 {
@@ -60,23 +61,27 @@ public class ReputationCalculation : MonoBehaviour
     {
 
         ChangeRep(10);
+        Debug.Log("RepIncreaseSmall +10");
     }
 
     public void RepDecreaseSmall()
     {
 
         ChangeRep(-10);
+        Debug.Log("RepDecreaseSmall -10");
     }
 
     public void RepIncreaseBig()
     {
 
         ChangeRep(20);
+        Debug.Log("RepIncreaseBig 20");
     }
 
     public void RepDecreaseBig()
     {
 
         ChangeRep(-20);
+        Debug.Log("RepDecreaseBig -20");
     }
 }
