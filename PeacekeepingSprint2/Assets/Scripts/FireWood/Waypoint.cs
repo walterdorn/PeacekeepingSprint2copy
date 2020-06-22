@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
+using UnityEngine.SceneManagement;
 
 public class Waypoint : MonoBehaviour
 {
@@ -101,4 +102,14 @@ public class Waypoint : MonoBehaviour
         missionStarted = true;
         movementSpeed = 4;
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (woodGathered == true)
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
 }
+
+

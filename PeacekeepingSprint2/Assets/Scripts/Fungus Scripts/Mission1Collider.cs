@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class Mission1Collider : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    public GameObject woodgatherer;
+
+    void OnTriggerEnter(Collider other)
     {
-        Fungus.Flowchart.BroadcastFungusMessage("Mission1Start");
-    }
+        if (woodgatherer.GetComponent<Waypoint>().woodGathered == true)
+        {
+            Fungus.Flowchart.BroadcastFungusMessage("Firewood Collected!");
+        }
+        else { Fungus.Flowchart.BroadcastFungusMessage("Mission1Start"); }
+}
 }
