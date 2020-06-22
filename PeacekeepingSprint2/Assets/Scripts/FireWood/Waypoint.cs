@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fungus;
 
 public class Waypoint : MonoBehaviour
 {
@@ -28,13 +29,14 @@ public class Waypoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(missionStarted == false && Input.GetKeyDown(KeyCode.M))
-        {
-            missionStarted = true;
-            movementSpeed = 4;
-        }
-        
-        
+        //wooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooow
+       // if (missionStarted == false && Input.GetKeyDown(KeyCode.M))
+       // {
+        ////    missionStarted = true;
+        //    movementSpeed = 4;
+       // }
+
+
         //make speed based from time.deltatime and rotation speed
         float movementStep = movementSpeed * Time.deltaTime;
         float rotationStep = rotationSpeed * Time.deltaTime;
@@ -43,7 +45,7 @@ public class Waypoint : MonoBehaviour
         Vector3 directionToTarget = targetWaypoint.position - transform.position;
         Quaternion rotationToTarget = Quaternion.LookRotation(directionToTarget);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotationToTarget, rotationStep);
-        
+
         //check distance between waypoints and moving object
         float distance = Vector3.Distance(transform.position, targetWaypoint.position);
         CheckDistanceToWaypoint(distance);
@@ -69,7 +71,7 @@ public class Waypoint : MonoBehaviour
 
     void CheckDistanceToWaypoint(float currentDistance)
     {
-       if(currentDistance <= minDistance)
+        if (currentDistance <= minDistance)
         {
             //increase the target waypoint index when object is close to the waypoint
             targetWaypointIndex++;
@@ -89,10 +91,14 @@ public class Waypoint : MonoBehaviour
 
     void onceWoodGathered()
     {
-      woodGathered = true;
-      movementSpeed = 4f;
-      gatherTime = 10000000f;
+        woodGathered = true;
+        movementSpeed = 4f;
+        gatherTime = 10000000f;
     }
 
-
+    public void StartFirewoodMission()
+    {
+        missionStarted = true;
+        movementSpeed = 4;
+    }
 }
