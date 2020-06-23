@@ -8,10 +8,6 @@ public class Mission1Collider : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (woodgatherer.GetComponent<Waypoint>().woodGathered == true)
-        {
-            Fungus.Flowchart.BroadcastFungusMessage("Firewood Collected!");
-        }
-        else { Fungus.Flowchart.BroadcastFungusMessage("Mission1Start"); }
-}
+        Fungus.Flowchart.BroadcastFungusMessage("Mission1Start");
+    }
 }
