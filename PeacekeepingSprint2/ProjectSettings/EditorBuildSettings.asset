@@ -7,10 +7,10 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: 
-    guid: 480bc5f249986824c8bd564e55a16233
-  - enabled: 1
-    path: Assets/Scenes/Main_Scene 1.unity
-    guid: af5f893d019e476409cde4ddbaf13343
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/DylanScene.unity
     guid: 0a45c2a4504c580478cace7f0e57d855

@@ -11,6 +11,7 @@ public class ReputationImpact : MonoBehaviour
     public GameObject position3;
     public GameObject position4;
     public GameObject position5;
+    public GameObject position6;
 
     //instantiable objects
     public GameObject object1;
@@ -18,6 +19,7 @@ public class ReputationImpact : MonoBehaviour
     public GameObject object3;
     public GameObject object4;
     public GameObject object5;
+    public GameObject object6;
 
     void Awake()
     {
@@ -40,10 +42,10 @@ public class ReputationImpact : MonoBehaviour
             Instantiate(object5, position5.transform.position, Quaternion.identity);
         }
 
-        else if (currentRep > 70)
+        else if (currentRep >= 70)
         {
 
-
+            Instantiate(object6, position6.transform.position, Quaternion.identity);
         }
     }
 }
