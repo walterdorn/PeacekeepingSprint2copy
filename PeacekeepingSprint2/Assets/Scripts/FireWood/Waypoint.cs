@@ -30,13 +30,19 @@ public class Waypoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //wooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooow
+        //wooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooow
        // if (missionStarted == false && Input.GetKeyDown(KeyCode.M))
        // {
         ////    missionStarted = true;
         //    movementSpeed = 4;
        // }
 
+        if (woodGathered == true)
+        {
+            GameObject.Find("ReputationBar").GetComponent<ReputationCalculation>().RepIncreaseBig();
+            SceneManager.LoadScene("Main_Scene");
+
+        }
 
         //make speed based from time.deltatime and rotation speed
         float movementStep = movementSpeed * Time.deltaTime;
