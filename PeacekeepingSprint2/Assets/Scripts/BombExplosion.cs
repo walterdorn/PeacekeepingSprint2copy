@@ -15,8 +15,8 @@ public class BombExplosion : MonoBehaviour
 
             Instantiate(explosion, transform.position, Quaternion.identity);
 
-            Destroy(other.gameObject);
-            //Destroy(gameObject);
+            //Destroy(other.gameObject);
+            Destroy(gameObject);
         }
     }
 }
