@@ -23,7 +23,7 @@ public class StopMovement : MonoBehaviour
 
            // GameObject.SendMessage(movementSpeed = 0);
 
-            myObject.GetComponent<Waypoint>().MyFunction();
+            //myObject.GetComponent<Waypoint>().MyFunction();
         }
     }
 }
