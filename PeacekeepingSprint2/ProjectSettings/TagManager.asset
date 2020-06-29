@@ -8,6 +8,7 @@ TagManager:
   - Millitary Man
   - Weapon
   - BurningGrounds
+  - Bomb
   layers:
   - Default
   - TransparentFX
