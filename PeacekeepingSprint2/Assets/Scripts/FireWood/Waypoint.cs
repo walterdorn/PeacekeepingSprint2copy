@@ -19,6 +19,8 @@ public class Waypoint : MonoBehaviour
     public bool woodGathered = false;
     public bool missionStarted = false;
 
+    public bool hittingBomb;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,6 +76,10 @@ public class Waypoint : MonoBehaviour
         {
             movementSpeed = 0;
         }
+
+    
+
+       
     }
 
     void CheckDistanceToWaypoint(float currentDistance)
@@ -115,7 +121,43 @@ public class Waypoint : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
+
+        if (other.tag == "Bomb")
+        {
+          //  BombStopper();
+           // hittingBomb = true;
+            Debug.Log("STOP THERES A BOMB");
+            
+
+            movementSpeed = 0;
+
+        }
+        else
+        {
+
+            movementSpeed = 4;
+        }
+
+
     }
+
+    
+
+    //void BombStopper()
+    //{
+
+    //    if (hittingBomb == true)
+    //    {
+
+    //        movementSpeed = 0;
+
+    //        hittingBomb = false;
+    //    }
+       
+
+    //}
+
+    
 }
 
 

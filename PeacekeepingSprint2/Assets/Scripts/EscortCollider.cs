@@ -53,22 +53,22 @@ public class EscortCollider : MonoBehaviour
 
     void StartTimer()
     {
-        timer +=  Time.deltaTime;
+    //    timer +=  Time.deltaTime;
 
-        if (timer >= 10)
-        {
-            //Debug.Log("You Lose");
-            // mission fail rep decrease
+    //    if (timer >= 10)
+    //    {
+    //        //Debug.Log("You Lose");
+    //        // mission fail rep decrease
 
-            if(Rep == true)
-            {
-                GameObject.Find("ReputationBar").GetComponent<ReputationCalculation>().RepDecreaseBig();
-                Rep = false;
+    //        if(Rep == true)
+    //        {
+    //            GameObject.Find("ReputationBar").GetComponent<ReputationCalculation>().RepDecreaseBig();
+    //            Rep = false;
 
-                SceneManager.LoadScene("Main_Scene");
-            }
+    //            SceneManager.LoadScene("Main_Scene");
+    //        }
             
-        }
+    //    }
 
 
     }
