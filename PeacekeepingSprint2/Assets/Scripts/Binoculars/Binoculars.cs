@@ -50,9 +50,14 @@ public class Binoculars : MonoBehaviour
     // For going between states of the BlackScreen
     private int blackScreenStateParameterHash = 0;
 
+    // variable for the binocular first person camera
+    public GameObject binocCamera;
+
+
 
     void Start()
-    {       
+    {
+       
         Reset();
 
         // "cache in" ? the hash
@@ -68,15 +73,25 @@ public class Binoculars : MonoBehaviour
         zoomSlider.minValue = zoomFOV;
         zoomSlider.maxValue = defaultFOV;
         zoomSlider.value = currentFOV;
+
+        // start the camera false because we dont want to be in them right away
+        binocCamera.SetActive(false);
+
+        // turn off the UI in the beginning of the game
+        canvasGroup.alpha = 0;
+
     }
 
     void Update()
     {
+        
         // if press key and currently not fading
         if (Input.GetKeyDown(toggleKey) && !isFading)
         {
             isFading = true;
             // when toggle key is down, run Toggle method
+
+           
             Toggle();
         }
         //only want to update zoom when binoculars are active
@@ -88,6 +103,7 @@ public class Binoculars : MonoBehaviour
 
     public void Toggle()
     {
+       // binocCamera.SetActive(true);
         // make boolean equal to opposite state (swap from true to false or vice versa)
         isActive = !isActive;
 
@@ -193,6 +209,8 @@ public class Binoculars : MonoBehaviour
                 // check if canvas alpha is less than 0
                 while (canvasGroup.alpha < 1)
                 {
+
+                    binocCamera.SetActive(true);
                     canvasGroup.alpha += 10 * Time.deltaTime;
                     yield return null;
                 }
@@ -203,6 +221,8 @@ public class Binoculars : MonoBehaviour
                 // if more than zero, it means the canvas hasn't fully faded out
                 while (canvasGroup.alpha > 0)
                 {
+
+                    binocCamera.SetActive(false);
                     // so subtract the alpha
                     canvasGroup.alpha -= 10f * Time.deltaTime;
                     yield return null;
