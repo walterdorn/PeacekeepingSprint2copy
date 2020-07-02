@@ -9,6 +9,7 @@ TagManager:
   - Weapon
   - BurningGrounds
   - Bomb
+  - FirstAidKit
   layers:
   - Default
   - TransparentFX

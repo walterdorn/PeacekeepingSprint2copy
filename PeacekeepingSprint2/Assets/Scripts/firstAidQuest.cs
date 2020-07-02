@@ -17,18 +17,24 @@ public class firstAidQuest : MonoBehaviour
     }
 
     private void OnTriggerStay(Collider other)
-    {
-        if (other.tag == "Player")
+    {       
+        // can use Input.GetAxis and Input.GetButton (or Input.GetKeyDown)
+        if (other.tag == "FirstAidKit" && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("firstAidQuest");
+            
+            Debug.Log("Pick up tourniquet");
+            // CollectTourniquet();
 
-            //Input.GetAxis and Input.GetButton (or Input.GetKeyDown)
-            if (Input.GetKey("e"))
-            {
-                Debug.Log("Got e");
-
-            }
+            // Destroy first aid kit
+            Destroy(other.gameObject);
         }
+
     }
+
+    //void CollectTourniquet()
+    //{
+    //    Debug.Log("Pick up tourniquet, show image.");
+    //    
+    //}
 
 }
