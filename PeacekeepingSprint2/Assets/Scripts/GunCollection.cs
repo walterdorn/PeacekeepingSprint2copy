@@ -88,7 +88,7 @@ public class GunCollection : MonoBehaviour
     public void LoadMainScene()
     {
 
-        if (Input.GetKey(KeyCode.B))
+        if (Input.GetKey(KeyCode.V))
         {
 
             SceneManager.LoadScene("Main_Scene");

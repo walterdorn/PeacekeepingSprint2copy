@@ -11,16 +11,22 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/1st Prototype.unity
+  - enabled: 0
+    path: Assets/Scenes/1st Iteration Prototype/1st Prototype.unity
     guid: d400fc5328a9e8245b106e31cf15654a
-  - enabled: 1
-    path: Assets/Scenes/DylanScene.unity
+  - enabled: 0
+    path: Assets/Scenes/1st Iteration Prototype/DylanScene.unity
     guid: 0a45c2a4504c580478cace7f0e57d855
-  - enabled: 1
-    path: Assets/Scenes/CarCrashFirstAid.unity
+  - enabled: 0
+    path: Assets/Scenes/1st Iteration Prototype/CarCrashFirstAid.unity
     guid: e60f73b854c49f64d83d07c66003cefa
-  - enabled: 1
-    path: Assets/Scenes/FireWoodCollection.unity
+  - enabled: 0
+    path: Assets/Scenes/1st Iteration Prototype/FireWoodCollection.unity
     guid: c084e79e09499ea4ea8061b04f124783
+  - enabled: 1
+    path: Assets/Scenes/Main_Scene.unity
+    guid: fd5a370f84e4d2348823f46db1853e7b
+  - enabled: 1
+    path: Assets/Scenes/GunScene.unity
+    guid: dbb45472720f4aa4cb2ab7be99e726b8
   m_configObjects: {}
