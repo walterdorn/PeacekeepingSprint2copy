@@ -18,5 +18,5 @@ public class BinocularMovement : MonoBehaviour
         transform.localRotation = Quaternion.Euler(new Vector4(-1f * (mouseY * 180f), mouseX * 360f, transform.localRotation.z));
     }
 
-    
+
 }
