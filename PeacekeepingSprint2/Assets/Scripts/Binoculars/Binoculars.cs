@@ -53,6 +53,9 @@ public class Binoculars : MonoBehaviour
     // variable for the binocular first person camera
     public GameObject binocCamera;
 
+    //variable for hiding the minimap
+    public GameObject minimapCanvas;
+
 
 
     void Start()
@@ -209,6 +212,8 @@ public class Binoculars : MonoBehaviour
                 // check if canvas alpha is less than 0
                 while (canvasGroup.alpha < 1)
                 {
+                    // hide minimap while binoculars active
+                    minimapCanvas.SetActive(false);
 
                     binocCamera.SetActive(true);
                     canvasGroup.alpha += 10 * Time.deltaTime;
@@ -221,6 +226,8 @@ public class Binoculars : MonoBehaviour
                 // if more than zero, it means the canvas hasn't fully faded out
                 while (canvasGroup.alpha > 0)
                 {
+                    // reveal minimap while binoculars not active
+                    minimapCanvas.SetActive(true);
 
                     binocCamera.SetActive(false);
                     // so subtract the alpha
