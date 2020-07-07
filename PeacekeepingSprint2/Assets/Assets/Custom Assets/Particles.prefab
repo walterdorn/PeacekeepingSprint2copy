@@ -175,6 +175,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Explosion_Concrete_Rubble_Large_FX
       objectReference: {fileID: 0}
+    - target: {fileID: 1549373087677006, guid: 2b79ec10654f26344816627d7515c1df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4800574201007112, guid: 2b79ec10654f26344816627d7515c1df, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.33000183
