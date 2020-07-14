@@ -10,6 +10,7 @@ TagManager:
   - BurningGrounds
   - Bomb
   - FirstAidKit
+  - GuardTower
   layers:
   - Default
   - TransparentFX

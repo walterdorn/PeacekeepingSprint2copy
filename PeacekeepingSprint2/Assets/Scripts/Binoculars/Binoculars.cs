@@ -7,8 +7,8 @@ using UnityEngine.UI;
 using TMPro;
 
 
-// from https://www.youtube.com/watch?v=DAXgs7kTYQg "Unity Tutorial - How to create Binoculars" 
-// by WatchFindDo Media - Jan 26 2019
+// modified from https://www.youtube.com/watch?v=DAXgs7kTYQg 
+// "Unity Tutorial - How to create Binoculars" by WatchFindDo Media - Jan 26 2019
 public class Binoculars : MonoBehaviour
 {    
     [SerializeField] float zoomFOV = 15.0f;
@@ -109,7 +109,7 @@ public class Binoculars : MonoBehaviour
 
     public void Toggle()
     {
-       // binocCamera.SetActive(true);
+        // binocCamera.SetActive(true);
         // make boolean equal to opposite state (swap from true to false or vice versa)
         isActive = !isActive;
 
@@ -258,8 +258,6 @@ public class Binoculars : MonoBehaviour
             yield return new WaitForSeconds(.1f);
             animator.SetInteger(blackScreenStateParameterHash, 1);
         }
-
-
 
         isFading = false;
     }
