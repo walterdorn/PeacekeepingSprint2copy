@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Interaction : MonoBehaviour
 {
+
+    // the UI TEXT
+    public Text InteractText;
+
     public bool inTower = false;
 
     public GameObject guardTowerCamera;
@@ -11,9 +16,9 @@ public class Interaction : MonoBehaviour
     public GameObject freeLookCamera;
     public GameObject thirdPersonController;
 
-    public float xPositionGuardTower;
-    public float yPositionGuardTower;
-    public float zPositionGuardTower;
+    //public float xPositionGuardTower;
+    //public float yPositionGuardTower;
+    //public float zPositionGuardTower;
  
     public Binoculars binocularsScript;
 
@@ -21,9 +26,12 @@ public class Interaction : MonoBehaviour
     {
         guardTowerCamera.SetActive(false);
 
-        xPositionGuardTower = -54;
-        yPositionGuardTower = 4;
-        zPositionGuardTower = 96.3f;
+        // xPositionGuardTower = -54;
+        // yPositionGuardTower = 4;
+        // zPositionGuardTower = 96.3f;
+
+        // turn off the UI when game starts
+        InteractText.enabled = false;
     }
 
     private void OnTriggerStay(Collider other)
@@ -123,6 +131,26 @@ public class Interaction : MonoBehaviour
         //    Debug.Log("Pick up tourniquet, show image in Fungus.");
 
         //}
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // if (other.tag == "GuardTower")
+        // {
+
+        InteractText.enabled = true;
+        //}
+
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+
+
+        InteractText.enabled = false;
+
 
     }
 }
