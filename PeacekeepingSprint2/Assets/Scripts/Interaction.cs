@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
+    public bool inTower = false;
 
     public GameObject guardTowerCamera;
     public GameObject binocCamera;
@@ -47,7 +48,7 @@ public class Interaction : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Debug.Log("Pressed E on Guard Tower");
-
+                inTower = true;
                 // set active on guard tower camera
                 guardTowerCamera.SetActive(true);
                 // set false on binocular, free look camera rig, third person controller
@@ -84,6 +85,15 @@ public class Interaction : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Debug.Log("Pressed E on GuardTowerTop");
+
+                inTower = false;
+
+                // set active on guard tower camera
+                guardTowerCamera.SetActive(false);
+                // set false on binocular, free look camera rig, third person controller
+                binocCamera.SetActive(true);
+                freeLookCamera.SetActive(true);
+                thirdPersonController.SetActive(true);
             }
 
         }
