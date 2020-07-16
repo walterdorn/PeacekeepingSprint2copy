@@ -1,18 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Interaction : MonoBehaviour
 {
+
+    // the UI TEXT
+    public Text InteractText;
+
+    public bool inTower = false;
 
     public GameObject guardTowerCamera;
     public GameObject binocCamera;
     public GameObject freeLookCamera;
     public GameObject thirdPersonController;
 
-    public float xPositionGuardTower;
-    public float yPositionGuardTower;
-    public float zPositionGuardTower;
+    //public float xPositionGuardTower;
+    //public float yPositionGuardTower;
+    //public float zPositionGuardTower;
  
     public Binoculars binocularsScript;
 
@@ -20,9 +26,12 @@ public class Interaction : MonoBehaviour
     {
         guardTowerCamera.SetActive(false);
 
-        xPositionGuardTower = -54;
-        yPositionGuardTower = 4;
-        zPositionGuardTower = 96.3f;
+        // xPositionGuardTower = -54;
+        // yPositionGuardTower = 4;
+        // zPositionGuardTower = 96.3f;
+
+        // turn off the UI when game starts
+        InteractText.enabled = false;
     }
 
     private void OnTriggerStay(Collider other)
@@ -47,7 +56,7 @@ public class Interaction : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Debug.Log("Pressed E on Guard Tower");
-
+                inTower = true;
                 // set active on guard tower camera
                 guardTowerCamera.SetActive(true);
                 // set false on binocular, free look camera rig, third person controller
@@ -84,6 +93,15 @@ public class Interaction : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Debug.Log("Pressed E on GuardTowerTop");
+
+                inTower = false;
+
+                // set active on guard tower camera
+                guardTowerCamera.SetActive(false);
+                // set false on binocular, free look camera rig, third person controller
+                binocCamera.SetActive(true);
+                freeLookCamera.SetActive(true);
+                thirdPersonController.SetActive(true);
             }
 
         }
@@ -113,6 +131,26 @@ public class Interaction : MonoBehaviour
         //    Debug.Log("Pick up tourniquet, show image in Fungus.");
 
         //}
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // if (other.tag == "GuardTower")
+        // {
+
+        InteractText.enabled = true;
+        //}
+
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+
+
+        InteractText.enabled = false;
+
 
     }
 }

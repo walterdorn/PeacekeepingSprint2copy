@@ -22,6 +22,7 @@ public class Binoculars : MonoBehaviour
 
     // for Zoom / Field of View
     [SerializeField] Camera mainCamera = null;
+    [SerializeField] Camera guardBinocularCamera = null;
 
     // For going between states of the BlackScreen
     [SerializeField] Animator animator = null;
@@ -133,6 +134,7 @@ public class Binoculars : MonoBehaviour
         // use scroll wheel to zoom
         if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
+            Debug.Log("Used Mousewheel in Binoculars script");
             // Zoom In
             // don't want to exceed a certain limit, so clamp (value, min, max)
             currentFOV = Mathf.Clamp(currentFOV + zoomSpeed, zoomFOV, defaultFOV);
@@ -153,6 +155,7 @@ public class Binoculars : MonoBehaviour
         }
 
         UpdateFOV(smoothZoom);
+        UpdateFOVGuardTowerBinoculars(smoothZoom);
     }
 
     public void UpdateUI()
@@ -190,6 +193,36 @@ public class Binoculars : MonoBehaviour
             if (mainCamera)
             {
                 mainCamera.fieldOfView = currentFOV;
+            }
+            if (zoomSlider)
+            {
+                zoomSlider.value = currentFOV;
+            }
+        }
+    }
+
+    // parameter smoothUpdate added for Reset()
+    public void UpdateFOVGuardTowerBinoculars(bool smoothUpdate)
+    {
+        // want to smoothly zoom in
+        if (smoothUpdate)
+        {
+            // check if have assigned main camera
+            if (guardBinocularCamera)
+            {
+                // interpolate between 
+                guardBinocularCamera.fieldOfView = Mathf.Lerp(guardBinocularCamera.fieldOfView, currentFOV, Time.deltaTime * smoothSpeed);
+            }
+            if (zoomSlider)
+            {
+                zoomSlider.value = Mathf.Lerp(zoomSlider.value, currentFOV, Time.deltaTime * smoothSpeed);
+            }
+        }
+        else
+        {
+            if (guardBinocularCamera)
+            {
+                guardBinocularCamera.fieldOfView = currentFOV;
             }
             if (zoomSlider)
             {
@@ -268,6 +301,7 @@ public class Binoculars : MonoBehaviour
         // called at start of game
         currentFOV = defaultFOV;
         UpdateFOV(false);
+        UpdateFOVGuardTowerBinoculars(false);
         UpdateUI();       
     }
 
