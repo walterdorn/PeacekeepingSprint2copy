@@ -75,6 +75,18 @@ public class ReputationCalculation : MonoBehaviour
         }
     }
 
+    public void RepIncreaseTiny()
+    {
+
+        ChangeRep(5, -5);
+    }
+
+    public void RepDecreaseTiny()
+    {
+
+        ChangeRep(-5, 5);
+    }
+
     public void RepIncreaseSmall()
     {
 
