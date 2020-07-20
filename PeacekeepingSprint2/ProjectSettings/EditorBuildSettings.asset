@@ -11,9 +11,9 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: 0b2dd0f54df98c347ad9d7a5c4758c18
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/Scenes/1st Iteration Prototype/1st Prototype.unity
     guid: d400fc5328a9e8245b106e31cf15654a
