@@ -7,11 +7,16 @@ public class TurnOffMissionBegin : MonoBehaviour
 
     public GameObject BeginningCircle;
     public GameObject SecondCircle;
+
+
+    public GameObject SecondUNMOTrigger;
     // Start is called before the first frame update
     void Start()
     {
         SecondCircle.SetActive(false);
         BeginningCircle.SetActive(true);
+
+        SecondUNMOTrigger.SetActive(false);
     }
 
     // Update is called once per frame
@@ -22,6 +27,9 @@ public class TurnOffMissionBegin : MonoBehaviour
 
             SecondCircle.SetActive(true);
             BeginningCircle.SetActive(false);
+
+            SecondUNMOTrigger.SetActive(true);
+
 
         }
     }
