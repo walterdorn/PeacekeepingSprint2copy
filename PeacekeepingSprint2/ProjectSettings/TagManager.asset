@@ -12,6 +12,7 @@ TagManager:
   - FirstAidKit
   - GuardTower
   - Second UNMO Circle
+  - Casualty
   layers:
   - Default
   - TransparentFX

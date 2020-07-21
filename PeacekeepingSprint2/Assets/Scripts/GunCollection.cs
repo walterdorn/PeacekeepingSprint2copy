@@ -30,7 +30,7 @@ public class GunCollection : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
 
-        Debug.Log("Im Hitting!");
+       // Debug.Log("Im Hitting!");
         if (other.tag == "Weapon")
        {
             gunsCollected++;
