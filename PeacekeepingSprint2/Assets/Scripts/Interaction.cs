@@ -15,6 +15,10 @@ public class Interaction : MonoBehaviour
     public GameObject freeLookCamera;
     public GameObject thirdPersonController;
 
+
+    // mission zone for first aid mission
+    public GameObject FirstAidMissionZone;
+
     public Image tourniquetUIImage;
     //public GameObject tourniquetUIImage;
  
@@ -43,6 +47,10 @@ public class Interaction : MonoBehaviour
             // turn on tourniquet image in UI
             tourniquetUIImage.enabled = true;
             //tourniquetUIImage.gameObject.SetActive(true);
+
+
+            // this turns off the first mission zone in the first aid mission
+            FirstAidMissionZone.SetActive(false);
 
             // Destroy first aid kit
             Destroy(other.gameObject);
