@@ -63,6 +63,12 @@ public class Interaction : MonoBehaviour
 
         }
 
+        if (other.tag == "Radio" && Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("Used Radio");           
+
+        }
+
         if (other.tag == "GuardTower")
         {
             // Show UI E to interact
