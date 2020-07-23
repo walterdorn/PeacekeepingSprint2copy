@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class TurnOffMissionBegin : MonoBehaviour
 {
-
     public GameObject BeginningCircle;
     public GameObject SecondCircle;
-
 
     public GameObject SecondUNMOTrigger;
     // Start is called before the first frame update
     void Start()
     {
-        SecondCircle.SetActive(false);
         BeginningCircle.SetActive(true);
+        SecondCircle.SetActive(false);        
 
         SecondUNMOTrigger.SetActive(false);
     }
@@ -24,13 +22,12 @@ public class TurnOffMissionBegin : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-
             SecondCircle.SetActive(true);
             BeginningCircle.SetActive(false);
 
             SecondUNMOTrigger.SetActive(true);
 
-
         }
+
     }
 }
