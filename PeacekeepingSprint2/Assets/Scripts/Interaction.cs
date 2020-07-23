@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Interaction : MonoBehaviour
 {
-
     // the UI TEXT
     public Text InteractText;
 
@@ -16,9 +15,12 @@ public class Interaction : MonoBehaviour
     public GameObject freeLookCamera;
     public GameObject thirdPersonController;
 
-    //public float xPositionGuardTower;
-    //public float yPositionGuardTower;
-    //public float zPositionGuardTower;
+
+    // mission zone for first aid mission
+    public GameObject FirstAidMissionZone;
+
+    public Image tourniquetUIImage;
+    //public GameObject tourniquetUIImage;
  
     public Binoculars binocularsScript;
 
@@ -26,12 +28,14 @@ public class Interaction : MonoBehaviour
     {
         guardTowerCamera.SetActive(false);
 
-        // xPositionGuardTower = -54;
-        // yPositionGuardTower = 4;
-        // zPositionGuardTower = 96.3f;
+        //tourniquetUIImage = GetComponent<Image>();
+        
 
         // turn off the UI when game starts
         InteractText.enabled = false;
+        tourniquetUIImage.enabled = false;
+        //tourniquetUIImage.SetActive(false);
+        //tourniquetUIImage.gameObject.SetActive(false);
     }
 
     private void OnTriggerStay(Collider other)
@@ -39,13 +43,30 @@ public class Interaction : MonoBehaviour
         // can use Input.GetAxis and Input.GetButton (or Input.GetKeyDown)
         if (other.tag == "FirstAidKit" && Input.GetKeyDown(KeyCode.E))
         {
-
             Debug.Log("Pick up tourniquet");
+            // turn on tourniquet image in UI
+            tourniquetUIImage.enabled = true;
+            //tourniquetUIImage.gameObject.SetActive(true);
 
-            // CollectTourniquet();
+
+            // this turns off the first mission zone in the first aid mission
+            FirstAidMissionZone.SetActive(false);
 
             // Destroy first aid kit
             Destroy(other.gameObject);
+        }
+
+        if (other.tag == "Casualty" && Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("Use tourniquet");
+            tourniquetUIImage.enabled = false;
+
+        }
+
+        if (other.tag == "Radio" && Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("Used Radio");           
+
         }
 
         if (other.tag == "GuardTower")
@@ -63,24 +84,6 @@ public class Interaction : MonoBehaviour
                 binocCamera.SetActive(false);
                 freeLookCamera.SetActive(false);
                 thirdPersonController.SetActive(false);
-
-                // Fade to black 
-                //binocularsScript = GetComponent<Binoculars>();
-
-                // turn off third person controller
-                //thirdPersonController.SetActive(false);
-
-                // position binocular camera up in guard tower
-                //transform.position = new Vector3(xPositionGuardTower, yPositionGuardTower, zPositionGuardTower);
-
-                // fade into binoculars
-                // call binoculars script
-
-                // free look? full 360
-
-                // E to go back to bottom of guard tower
-
-                // set 
 
             }
         }
@@ -106,51 +109,19 @@ public class Interaction : MonoBehaviour
 
         }
 
-
-        // each guard tower needs vectors, so should find vector of current guard tower and add units to get to find top of guard tower
-        //public static Vector3 WithX(this Vector3 vector, float x)
-        //{
-        //    return new Vector3(x, vector.y, vector.z);
-        //}
-
-        //public static Vector3 WithY(this Vector3 vector, float y)
-        //{
-        //    return new Vector3(vector.x, y, vector.z);
-        //}
-
-        //public static Vector3 WithZ(this Vector3 vector, float z)
-        //{
-        //    return new Vector3(vector.x, vector.y, z);
-        //}
-
-        // transform.position = transform.position.WithX(Random.Range(-11, 12));
-
-        //void CollectTourniquet()
-        //{
-
-        //    Debug.Log("Pick up tourniquet, show image in Fungus.");
-
-        //}
-
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // if (other.tag == "GuardTower")
-        // {
 
         InteractText.enabled = true;
-        //}
-
 
     }
 
     private void OnTriggerExit(Collider other)
     {
 
-
         InteractText.enabled = false;
-
 
     }
 }

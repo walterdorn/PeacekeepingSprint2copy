@@ -10,6 +10,10 @@ public class GuardTowerTopScript : MonoBehaviour
     public GameObject freeLookCamera;
     public GameObject guardTowerCamera;
 
+    public GameObject BeginningCircle;
+    public GameObject SecondCircle;
+    public GameObject SecondUNMOTrigger;
+
     public UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter thirdPersonCharacterScript;
 
     void Start()
@@ -18,6 +22,11 @@ public class GuardTowerTopScript : MonoBehaviour
         interactionScript = thirdPersonController.GetComponent<Interaction>();
         // get reference to the third person character controller in order to change the move speed multiplier variable.
         thirdPersonCharacterScript = thirdPersonController.GetComponent<UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter>();
+
+        SecondCircle.SetActive(false);
+        BeginningCircle.SetActive(true);
+
+        SecondUNMOTrigger.SetActive(false);
     }
 
     // Update is called once per frame
@@ -53,9 +62,14 @@ public class GuardTowerTopScript : MonoBehaviour
 
                     }
 
+                    SecondCircle.SetActive(true);
+                    BeginningCircle.SetActive(false);
+
+                    SecondUNMOTrigger.SetActive(true);
 
 
-                   // thirdPersonCharacterScript.m_MoveSpeedMultiplier = 1f;
+
+                    // thirdPersonCharacterScript.m_MoveSpeedMultiplier = 1f;
 
                     //Debug.Log("thirdPersonCharacterScript.m_MoveSpeedMultiplier in LeaveGuardTower script: " + thirdPersonCharacterScript.m_MoveSpeedMultiplier);
 
