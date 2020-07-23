@@ -12,7 +12,7 @@ public class GuardTowerTopScript : MonoBehaviour
 
     public GameObject BeginningCircle;
     public GameObject SecondCircle;
-    public GameObject SecondUNMOTrigger;
+    //public GameObject SecondUNMOTrigger;
 
     public UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter thirdPersonCharacterScript;
 
@@ -26,7 +26,7 @@ public class GuardTowerTopScript : MonoBehaviour
         SecondCircle.SetActive(false);
         BeginningCircle.SetActive(true);
 
-        SecondUNMOTrigger.SetActive(false);
+        //SecondUNMOTrigger.SetActive(false);
     }
 
     // Update is called once per frame
@@ -65,7 +65,7 @@ public class GuardTowerTopScript : MonoBehaviour
                     SecondCircle.SetActive(true);
                     BeginningCircle.SetActive(false);
 
-                    SecondUNMOTrigger.SetActive(true);
+                    //SecondUNMOTrigger.SetActive(true);
 
 
 
