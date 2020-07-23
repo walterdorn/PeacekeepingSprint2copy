@@ -10,32 +10,34 @@ public class Interaction : MonoBehaviour
 
     public bool inTower = false;
 
+    public bool spokeOnRadio = false;
+    public bool openedFirstAidBox = false;
+    public bool usedTourniquet = false;
+
     public GameObject guardTowerCamera;
     public GameObject binocCamera;
     public GameObject freeLookCamera;
     public GameObject thirdPersonController;
-
 
     // mission zone for first aid mission
     public GameObject FirstAidMissionZone;
 
     public Image tourniquetUIImage;
     //public GameObject tourniquetUIImage;
- 
+
+    public SwitchBetweenFungusDialogue switchBetweenFungusDialogue;
+
     public Binoculars binocularsScript;
 
     public void Start()
     {
+        switchBetweenFungusDialogue = GetComponent<SwitchBetweenFungusDialogue>();
         guardTowerCamera.SetActive(false);
-
-        //tourniquetUIImage = GetComponent<Image>();
-        
 
         // turn off the UI when game starts
         InteractText.enabled = false;
         tourniquetUIImage.enabled = false;
-        //tourniquetUIImage.SetActive(false);
-        //tourniquetUIImage.gameObject.SetActive(false);
+       
     }
 
     private void OnTriggerStay(Collider other)
@@ -46,28 +48,31 @@ public class Interaction : MonoBehaviour
             Debug.Log("Pick up tourniquet");
             // turn on tourniquet image in UI
             tourniquetUIImage.enabled = true;
-            //tourniquetUIImage.gameObject.SetActive(true);
-
+            //openedFirstAidBox = true;
 
             // this turns off the first mission zone in the first aid mission
             FirstAidMissionZone.SetActive(false);
 
             // Destroy first aid kit
             Destroy(other.gameObject);
+
         }
 
         if (other.tag == "Casualty" && Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("Use tourniquet");
+            //switchBetweenFungusDialogue.TurnOnFinalCasualtyDialogue();
+
             tourniquetUIImage.enabled = false;
 
         }
 
-        if (other.tag == "Radio" && Input.GetKeyDown(KeyCode.E))
-        {
-            Debug.Log("Used Radio");           
+        //if (other.tag == "Radio" && Input.GetKeyDown(KeyCode.E))
+        //{
+        //    Debug.Log("Used Radio");
+        //    spokeOnRadio = true;
 
-        }
+        //}
 
         if (other.tag == "GuardTower")
         {
