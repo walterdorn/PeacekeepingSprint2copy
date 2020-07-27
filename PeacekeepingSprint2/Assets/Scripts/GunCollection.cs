@@ -13,14 +13,48 @@ public class GunCollection : MonoBehaviour
     public GameObject Logs;
 
     public int BurnTicket;
+
+
+    public GameObject BigVillageCircle6;
+    public GameObject BigVillageCircle1;
+    public GameObject BigVillageCircle2;
+    public GameObject BigVillageCircle3;
+    public GameObject BigVillageCircle4;
+    public GameObject BigVillageCircle5;
+
+
+    public GameObject Weapon1;
+    public GameObject Weapon2;
+    public GameObject Weapon3;
+    public GameObject Weapon4;
+    public GameObject Weapon5;
+    public GameObject Weapon6;
+
     // Start is called before the first frame update
     void Start()
     {
 
-    }
 
-    // Update is called once per frame
-    void Update()
+        BigVillageCircle1.SetActive(false);
+        BigVillageCircle2.SetActive(false);
+        BigVillageCircle3.SetActive(false);
+        BigVillageCircle4.SetActive(false);
+        BigVillageCircle5.SetActive(false);
+        BigVillageCircle6.SetActive(false);
+
+        Weapon1.SetActive(false);
+        Weapon2.SetActive(false);
+        Weapon3.SetActive(false);
+        Weapon4.SetActive(false);
+        Weapon5.SetActive(false);
+        Weapon6.SetActive(false);
+     
+
+
+}
+
+// Update is called once per frame
+void Update()
     {
         CollectGuns();
         BurningGuns();
@@ -95,5 +129,26 @@ public class GunCollection : MonoBehaviour
         }
     }
 
-    
+
+    void TurnOnVillageWeaponDialogue()
+    {
+        BigVillageCircle1.SetActive(true);
+        BigVillageCircle2.SetActive(true);
+        BigVillageCircle3.SetActive(true);
+        BigVillageCircle4.SetActive(true);
+        BigVillageCircle5.SetActive(true);
+        BigVillageCircle6.SetActive(true);
+
+
+        Weapon1.SetActive(true);
+        Weapon2.SetActive(true);
+        Weapon3.SetActive(true);
+        Weapon4.SetActive(true);
+        Weapon5.SetActive(true);
+        Weapon6.SetActive(true);
+
+    }
+
+
+
 }
