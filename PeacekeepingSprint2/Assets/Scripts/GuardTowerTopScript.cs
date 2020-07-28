@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GuardTowerTopScript : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class GuardTowerTopScript : MonoBehaviour
     public GameObject SecondCircle;
     //public GameObject SecondUNMOTrigger;
 
+   // public Text PressFText;
+
     public UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter thirdPersonCharacterScript;
 
     void Start()
@@ -25,6 +28,8 @@ public class GuardTowerTopScript : MonoBehaviour
 
         SecondCircle.SetActive(false);
         BeginningCircle.SetActive(true);
+
+       //PressFText.enabled = false;
 
         //SecondUNMOTrigger.SetActive(false);
     }
@@ -83,6 +88,18 @@ public class GuardTowerTopScript : MonoBehaviour
         }
 
     }
+
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(interactionScript.inTower == true && other.tag == "PressF")
+    //    {
+
+    //        PressFText.enabled = true;
+
+    //        interactionScript.InteractText.enabled = false;
+    //    }
+    //}
 
     //IEnumerator WaitForSecondsCoroutine()
     //{

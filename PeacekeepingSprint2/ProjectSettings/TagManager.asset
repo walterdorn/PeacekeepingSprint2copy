@@ -14,6 +14,7 @@ TagManager:
   - Second UNMO Circle
   - Casualty
   - Radio
+  - PressF
   layers:
   - Default
   - TransparentFX

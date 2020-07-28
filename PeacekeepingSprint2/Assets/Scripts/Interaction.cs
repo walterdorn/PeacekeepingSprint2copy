@@ -10,6 +10,9 @@ public class Interaction : MonoBehaviour
     // the UI TEXT
     public Text InteractText;
 
+  
+    
+
     public bool inTower = false;
 
     public GameObject guardTowerCamera;
@@ -35,7 +38,10 @@ public class Interaction : MonoBehaviour
 
         // turn off the UI when game starts
         InteractText.enabled = false;
+
+        
         tourniquetUIImage.enabled = false;
+
        
     }
 
@@ -120,6 +126,11 @@ public class Interaction : MonoBehaviour
     {
 
         InteractText.enabled = true;
+
+
+       
+
+        
 
     }
 
