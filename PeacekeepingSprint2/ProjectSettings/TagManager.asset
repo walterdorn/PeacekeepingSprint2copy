@@ -15,6 +15,7 @@ TagManager:
   - Casualty
   - Radio
   - PressF
+  - Car
   layers:
   - Default
   - TransparentFX
