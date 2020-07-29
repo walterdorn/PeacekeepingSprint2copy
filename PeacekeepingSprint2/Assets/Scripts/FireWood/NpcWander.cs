@@ -11,11 +11,15 @@ public class NpcWander : MonoBehaviour
     private bool isRotatingLeft = false;
     private bool isRotatingRight = false;
     private bool isWalking = false;
-    
+
+    public bool playAnimation = true;
+
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
-     
+        anim = GetComponent<Animator>();
+        anim.enabled = false;
     }
 
     // Update is called once per frame
@@ -28,14 +32,30 @@ public class NpcWander : MonoBehaviour
       if(isRotatingRight == true)
         {
             transform.Rotate(transform.up * Time.deltaTime * rotationSpeed);
+            playAnimation = false;
+            anim.enabled = false;
         }
         if (isRotatingLeft == true)
         {
             transform.Rotate(transform.up * Time.deltaTime * -rotationSpeed);
+            playAnimation = false;
+            anim.enabled = false;
         }
         if(isWalking == true)
         {
             transform.position += transform.forward * moveSpeed * Time.deltaTime;
+            playAnimation = true;
+            
+        }
+
+        if (playAnimation == true)
+        {
+            anim.enabled = true;
+        }
+
+        if(playAnimation == false)
+        {
+            anim.enabled = false;
         }
     }
 
