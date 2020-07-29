@@ -17,6 +17,7 @@ namespace Fungus
         protected void Awake()
         {
             selectable = GetComponent<Selectable>();
+            Debug.Log("selectable = GetComponent<Selectable>()");
         }
 
         protected void OnEnable()
