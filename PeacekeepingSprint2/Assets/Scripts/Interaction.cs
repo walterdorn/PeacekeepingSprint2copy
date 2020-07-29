@@ -10,6 +10,9 @@ public class Interaction : MonoBehaviour
     // the UI TEXT
     public Text InteractText;
 
+  
+    
+
     public bool inTower = false;
 
     public GameObject guardTowerCamera;
@@ -23,6 +26,9 @@ public class Interaction : MonoBehaviour
     // reference to image to put tourniquet into inventory
     public Image tourniquetUIImage;
 
+    // reference to image to search first aid kit box
+    public Image firstAidKitUIImage;
+
     // reference to script so can activate the final dialogue for the first aid mission
     public SwitchBetweenFungusDialogue switchBetweenFungusDialogue;
 
@@ -35,7 +41,11 @@ public class Interaction : MonoBehaviour
 
         // turn off the UI when game starts
         InteractText.enabled = false;
+
+        
         tourniquetUIImage.enabled = false;
+        firstAidKitUIImage.enabled = false;
+
        
     }
 
@@ -45,8 +55,10 @@ public class Interaction : MonoBehaviour
         if (other.tag == "FirstAidKit" && Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("Pick up tourniquet");
+
             // turn on tourniquet image in UI
-            tourniquetUIImage.enabled = true;            
+            tourniquetUIImage.enabled = true;
+            firstAidKitUIImage.enabled = true;            
 
             // this turns off the first mission zone in the first aid mission
             FirstAidMissionZone.SetActive(false);
@@ -64,6 +76,7 @@ public class Interaction : MonoBehaviour
             switchBetweenFungusDialogue.GetComponent<SwitchBetweenFungusDialogue>().TurnOnFinalCasualtyDialogue();
 
             tourniquetUIImage.enabled = false;
+            firstAidKitUIImage.enabled = false;
 
         }
 
@@ -120,6 +133,11 @@ public class Interaction : MonoBehaviour
     {
 
         InteractText.enabled = true;
+
+
+       
+
+        
 
     }
 

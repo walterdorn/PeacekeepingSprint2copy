@@ -80,6 +80,7 @@ namespace Fungus
                     if (Input.GetKeyDown(key))
                     {
                         FillOutValue(trueVal);
+                        Debug.Log("FillOutValue(trueVal) keycode key");
                     }
                     break;
                 case InputKeyQueryType.Up:
@@ -107,6 +108,7 @@ namespace Fungus
                     if (Input.GetKeyDown(key))
                     {
                         FillOutValue(trueVal);
+                        Debug.Log("FillOutValue(trueVal) string key");
                     }
                     break;
                 case InputKeyQueryType.Up:

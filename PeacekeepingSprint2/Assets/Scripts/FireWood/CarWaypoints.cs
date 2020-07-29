@@ -39,7 +39,7 @@ public class CarWaypoints : MonoBehaviour
         //move the player to the waypoint position
         transform.position = Vector3.MoveTowards(transform.position, targetWaypoint.position, movementStep);
 
-       
+
     }
 
     void CheckDistanceToWaypoint(float currentDistance)
@@ -62,7 +62,21 @@ public class CarWaypoints : MonoBehaviour
         targetWaypoint = waypoints[targetWaypointIndex];
     }
 
-    
+    public void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Car")
+        {
+            movementSpeed = 0;
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.tag == "Player" || other.gameObject.tag == "Car")
+        {
+            movementSpeed = 7;
+        }
+    }
 }
 
 

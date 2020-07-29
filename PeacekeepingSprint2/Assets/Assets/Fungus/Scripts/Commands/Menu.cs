@@ -62,6 +62,7 @@ namespace Fungus
                     string displayText = flowchart.SubstituteVariables(text);
 
                     menuDialog.AddOption(displayText, interactable, hideOption, targetBlock);
+                    Debug.Log("menuDialog.AddOption(displayText, interactable, hideOption, targetBlock)");
                 }
             
             Continue();
