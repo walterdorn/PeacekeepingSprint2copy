@@ -132,12 +132,11 @@ public class Interaction : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        InteractText.enabled = true;
+        if (other.tag == "Weapon" || other.tag == "FirstAidKit" || other.tag == "GuardTower")
+        {
 
-
-       
-
-        
+            InteractText.enabled = true;
+        }
 
     }
 
