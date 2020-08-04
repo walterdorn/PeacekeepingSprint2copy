@@ -21,6 +21,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private Quaternion m_CameraTargetRot;
         private bool m_cursorIsLocked = true;
 
+
+        public void Update()
+        {
+            Debug.Log("lockCursor" + lockCursor);
+        }
+
         public void Init(Transform character, Transform camera)
         {
             m_CharacterTargetRot = character.localRotation;
@@ -57,9 +63,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public void SetCursorLock(bool value)
         {
+            Debug.Log("SetCursorLock");
             lockCursor = value;
             if(!lockCursor)
             {//we force unlock the cursor if the user disable the cursor locking helper
+                Debug.Log("!lockCursor");
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
@@ -80,16 +88,19 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             else if(Input.GetMouseButtonUp(0))
             {
+                Debug.Log("GetMouseButtonUp 0");
                 m_cursorIsLocked = true;
             }
 
             if (m_cursorIsLocked)
             {
+                Debug.Log("m_cursorIsLocked");
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
             }
             else if (!m_cursorIsLocked)
             {
+                Debug.Log("!m_cursorIsLocked");
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }

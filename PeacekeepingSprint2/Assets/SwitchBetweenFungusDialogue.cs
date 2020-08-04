@@ -12,6 +12,11 @@ public class SwitchBetweenFungusDialogue : MonoBehaviour
     public GameObject CarCrashCircle2;
     public GameObject CarCrashCircle3;
 
+    public GameObject firstAidKitCircle;
+
+    public GameObject casualtiesCarCrashCircle;    
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +24,11 @@ public class SwitchBetweenFungusDialogue : MonoBehaviour
         CarCrashCircle1.SetActive(true);
         CarCrashCircle2.SetActive(false);
         CarCrashCircle3.SetActive(false);
+        firstAidKitCircle.SetActive(false);
+        casualtiesCarCrashCircle.SetActive(false);
+
+        // Debug.Log("SwitchBetween script");
+
     }
 
     void TurnOnRadioDialogue()
@@ -32,12 +42,20 @@ public class SwitchBetweenFungusDialogue : MonoBehaviour
     {
         //Debug.Log("TurnOffRadioDialogue CarCrashCircle3 active");
         CarCrashCircle2.SetActive(false);
- 
+        firstAidKitCircle.SetActive(true);
     }
 
     public void TurnOnFinalCasualtyDialogue()
     {
         CarCrashCircle3.SetActive(true);
+        casualtiesCarCrashCircle.SetActive(false);
+    }
+
+    public void TurnOffFirstAidCircle()
+    {
+        firstAidKitCircle.SetActive(false);
+        casualtiesCarCrashCircle.SetActive(true);
+
     }
 
     void TurnOffFinalCasualtyDialogue()

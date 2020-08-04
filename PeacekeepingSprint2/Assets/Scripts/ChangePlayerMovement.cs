@@ -22,20 +22,20 @@ public class ChangePlayerMovement : MonoBehaviour
     }
 
 
-    void StopMovement()
+    public void StopMovement()
     {
         // lowers the speed multiplier on the character stopping their movement
         thirdPersonCharacterScript.m_MoveSpeedMultiplier = 0f;
-       // freeLookCamera.SetActive(false);
+        // freeLookCamera.SetActive(false);
 
     }
 
 
-    void StartMovement()
+    public void StartMovement()
     {
         // lowers the speed multiplier on the character increasing their movement
         thirdPersonCharacterScript.m_MoveSpeedMultiplier = 1f;
-      //  freeLookCamera.SetActive(true);
+        // freeLookCamera.SetActive(true);
 
     }
 }

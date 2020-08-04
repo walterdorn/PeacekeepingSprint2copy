@@ -10,10 +10,11 @@ public class Interaction : MonoBehaviour
     // the UI TEXT
     public Text InteractText;
 
-  
-    
-
     public bool inTower = false;
+    public bool tookTourniquet = false;
+    bool ranCoroutine = false;        
+    bool ranCoroutine2 = false;
+    bool colliding = false;
 
     public GameObject guardTowerCamera;
     public GameObject binocCamera;
@@ -24,68 +25,96 @@ public class Interaction : MonoBehaviour
     public GameObject FirstAidMissionZone;
 
     // reference to image to put tourniquet into inventory
-    public Image tourniquetUIImage;
+    public Image tourniquetImage;
 
     // reference to image to search first aid kit box
-    public Image firstAidKitUIImage;
+    public Image firstAidKitImage;
+
+    // referencce to image to show tourniquet in first aid kit
+    public Image tourniquetInKitImage;  
 
     // reference to script so can activate the final dialogue for the first aid mission
     public SwitchBetweenFungusDialogue switchBetweenFungusDialogue;
 
     public Binoculars binocularsScript;
 
+    // to stop player from moving while using first aid kit
+    public ChangePlayerMovement changePlayerMovementScript;
+    
     public void Start()
     {
-        //switchBetweenFungusDialogue = GetComponent<SwitchBetweenFungusDialogue>();
+        // to stop player from moving while using first aid kit
+        changePlayerMovementScript = changePlayerMovementScript.GetComponent<ChangePlayerMovement>();
+
         guardTowerCamera.SetActive(false);
 
         // turn off the UI when game starts
         InteractText.enabled = false;
 
-        
-        tourniquetUIImage.enabled = false;
-        firstAidKitUIImage.enabled = false;
+        // start all first aid kit UI off
+        tourniquetImage.enabled = false;
+        firstAidKitImage.enabled = false;
+        tourniquetInKitImage.enabled = false;
 
-       
+    }
+
+    private void Update()
+    {
+        Debug.Log("ranCoroutine: " + ranCoroutine + " ranCoroutine2: " + ranCoroutine2);
+        Debug.Log("Collider " + colliding);
     }
 
     private void OnTriggerStay(Collider other)
     {
+        colliding = true;
         // can use Input.GetAxis and Input.GetButton (or Input.GetKeyDown)
         if (other.tag == "FirstAidKit" && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Pick up tourniquet");
+            Debug.Log("E key x1 - Pick up tourniquet in Interaction Script");             
+            changePlayerMovementScript.GetComponent<ChangePlayerMovement>().StopMovement();
 
-            // turn on tourniquet image in UI
-            tourniquetUIImage.enabled = true;
-            firstAidKitUIImage.enabled = true;            
+            // turn on first aid kit with tourniquet image in UI
+            tourniquetImage.enabled = false;
+            firstAidKitImage.enabled = true;
+            tourniquetInKitImage.enabled = true;
 
             // this turns off the first mission zone in the first aid mission
             FirstAidMissionZone.SetActive(false);
-
-            // Destroy first aid kit
-            Destroy(other.gameObject);
-
+            
+            // make the player wait for 1 second before being able to hit E again
+            StartCoroutine(WaitCoroutine());       
         }
+
+        // turn off 2D image of tourniquet in kit with E key
+        if (Input.GetKeyDown(KeyCode.E) && ranCoroutine == true)
+        {
+            Debug.Log("E key x2 - take tourniquet from kit");
+            tourniquetInKitImage.enabled = false;
+            tourniquetImage.enabled = true;
+            StartCoroutine(WaitCoroutine2());
+        }
+
+        // turn off 2D image of kit with E key
+        if (Input.GetKeyDown(KeyCode.E) && ranCoroutine2 == true)
+        {
+            Debug.Log("E key x3 - close kit");
+            firstAidKitImage.enabled = false;
+           
+            switchBetweenFungusDialogue.GetComponent<SwitchBetweenFungusDialogue>().TurnOffFirstAidCircle();
+            changePlayerMovementScript.GetComponent<ChangePlayerMovement>().StartMovement();
+        }
+
 
         if (other.tag == "Casualty" && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Use tourniquet");
-
-           // switchBetweenFungusDialogue.TurnOnFinalCasualtyDialogue();
+            Debug.Log("Use tourniquet");       
             switchBetweenFungusDialogue.GetComponent<SwitchBetweenFungusDialogue>().TurnOnFinalCasualtyDialogue();
 
-            tourniquetUIImage.enabled = false;
-            firstAidKitUIImage.enabled = false;
+            // when use tourniquet, turn off image in inventory
+            tourniquetImage.enabled = false;
+            firstAidKitImage.enabled = false;
 
         }
-
-        //if (other.tag == "Radio" && Input.GetKeyDown(KeyCode.E))
-        //{
-        //    Debug.Log("Used Radio");
-        //    spokeOnRadio = true;
-
-        //}
 
         if (other.tag == "GuardTower")
         {
@@ -98,6 +127,7 @@ public class Interaction : MonoBehaviour
                 inTower = true;
                 // set active on guard tower camera
                 guardTowerCamera.SetActive(true);
+
                 // set false on binocular, free look camera rig, third person controller
                 binocCamera.SetActive(false);
                 freeLookCamera.SetActive(false);
@@ -119,10 +149,12 @@ public class Interaction : MonoBehaviour
 
                 // set active on guard tower camera
                 guardTowerCamera.SetActive(false);
+
                 // set false on binocular, free look camera rig, third person controller
                 binocCamera.SetActive(true);
                 freeLookCamera.SetActive(true);
                 thirdPersonController.SetActive(true);
+
             }
 
         }
@@ -131,19 +163,39 @@ public class Interaction : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
-        if (other.tag == "Weapon" || other.tag == "FirstAidKit" || other.tag == "GuardTower")
+        if (other.tag == "Weapon" || other.tag == "FirstAidKit" || other.tag == "GuardTower" || other.tag == "Casualty")
         {
-
             InteractText.enabled = true;
         }
-
     }
 
     private void OnTriggerExit(Collider other)
     {
 
         InteractText.enabled = false;
+        colliding = false;
 
     }
+
+    IEnumerator WaitCoroutine()
+    {
+       
+        Debug.Log("Started Coroutine in Interaction script : " + Time.time);
+        yield return new WaitForSeconds(.2f);
+        ranCoroutine = true;
+        Debug.Log("Ended Coroutine in Interaction script : " + Time.time);
+       
+    }
+
+
+    IEnumerator WaitCoroutine2()
+    {
+        
+        Debug.Log("Started Coroutine 2  in Interaction script : " + Time.time);
+        yield return new WaitForSeconds(.2f);
+        ranCoroutine2 = true;
+        Debug.Log("Ended Coroutine 2  in Interaction script : " + Time.time);
+        
+    }
+
 }
