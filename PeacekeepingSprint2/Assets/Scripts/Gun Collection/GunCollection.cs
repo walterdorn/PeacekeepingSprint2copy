@@ -58,14 +58,14 @@ void Update()
     {
         CollectGuns();
         BurningGuns();
-        LoadMainScene();
+        
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
 
        // Debug.Log("Im Hitting!");
-        if (other.tag == "Weapon")
+        if (Input.GetKey(KeyCode.E) && other.tag == "Weapon")
        {
             gunsCollected++;
             Debug.Log("Gun Collected");
@@ -119,15 +119,8 @@ void Update()
 
     }
 
-    public void LoadMainScene()
-    {
-
-        if (Input.GetKey(KeyCode.V))
-        {
-
-            SceneManager.LoadScene("Main_Scene");
-        }
-    }
+    
+    
 
 
     void TurnOnVillageWeaponDialogue()
@@ -149,6 +142,45 @@ void Update()
 
     }
 
+    void TurnWeaponDialogue1Off()
+    {
+        BigVillageCircle1.SetActive(false);
 
 
+
+    }
+
+    void TurnWeaponDialogue2Off()
+    {
+
+        BigVillageCircle2.SetActive(false);
+
+    }
+
+    void TurnWeaponDialogue3Off()
+    {
+
+        BigVillageCircle3.SetActive(false);
+       
+
+    }
+
+    void TurnWeaponDialogue4Off()
+    {
+        BigVillageCircle4.SetActive(false);
+
+
+    }
+
+    void TurnWeaponDialogue5Off()
+    {
+
+        BigVillageCircle5.SetActive(false);
+    }
+
+    void TurnWeaponDialogue6Off()
+    {
+
+        BigVillageCircle6.SetActive(false);
+    }
 }
