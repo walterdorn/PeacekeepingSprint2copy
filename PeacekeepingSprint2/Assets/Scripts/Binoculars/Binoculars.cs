@@ -21,7 +21,7 @@ public class Binoculars : MonoBehaviour
     [SerializeField] KeyCode toggleKey = KeyCode.B;
 
     // for Zoom / Field of View
-    [SerializeField] Camera mainCamera = null;
+    [SerializeField] Camera BinocularsCamera = null;
     [SerializeField] Camera guardBinocularCamera = null;
 
     // For going between states of the BlackScreen
@@ -178,10 +178,10 @@ public class Binoculars : MonoBehaviour
         if (smoothUpdate)
         {
             // check if have assigned main camera
-            if (mainCamera)
+            if (BinocularsCamera)
             {
                 // interpolate between 
-                mainCamera.fieldOfView = Mathf.Lerp(mainCamera.fieldOfView, currentFOV, Time.deltaTime * smoothSpeed);
+                BinocularsCamera.fieldOfView = Mathf.Lerp(BinocularsCamera.fieldOfView, currentFOV, Time.deltaTime * smoothSpeed);
             }
             if (zoomSlider)
             {
@@ -190,9 +190,9 @@ public class Binoculars : MonoBehaviour
         }
         else
         {
-            if (mainCamera)
+            if (BinocularsCamera)
             {
-                mainCamera.fieldOfView = currentFOV;
+                BinocularsCamera.fieldOfView = currentFOV;
             }
             if (zoomSlider)
             {

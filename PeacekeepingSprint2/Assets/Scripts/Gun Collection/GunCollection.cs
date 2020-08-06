@@ -144,6 +144,9 @@ void Update()
 
     }
 
+
+    // these are called in fungus dialogue to turn off different dialogue circles
+
     void TurnWeaponDialogue1Off()
     {
         BigVillageCircle1.SetActive(false);

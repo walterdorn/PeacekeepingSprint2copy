@@ -6,7 +6,7 @@ public class ChangePlayerMovement : MonoBehaviour
 {
     public GameObject thirdPersonController;
 
-    public GameObject freeLookCamera;
+ 
 
     public UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter thirdPersonCharacterScript;
 
@@ -28,6 +28,8 @@ public class ChangePlayerMovement : MonoBehaviour
         thirdPersonCharacterScript.m_MoveSpeedMultiplier = 0f;
         // freeLookCamera.SetActive(false);
 
+        thirdPersonCharacterScript.m_JumpPower = 0f;
+
     }
 
 
@@ -37,5 +39,6 @@ public class ChangePlayerMovement : MonoBehaviour
         thirdPersonCharacterScript.m_MoveSpeedMultiplier = 1f;
         // freeLookCamera.SetActive(true);
 
+        thirdPersonCharacterScript.m_JumpPower = 6f;
     }
 }

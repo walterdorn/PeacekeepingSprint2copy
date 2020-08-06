@@ -31,6 +31,7 @@ public class TurnOffDialogue : MonoBehaviour
 
     }
 
+    // after talking to all five people the campfire spawns
     private void Update()
     {
         if(VillagersTalkedTo >= 5)
@@ -43,27 +44,8 @@ public class TurnOffDialogue : MonoBehaviour
     }
 
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.tag == "Second UNMO Circle")
-    //    {
-    //        if (SecondCircle.activeSelf)
-    //        {
-    //            VillageCircle1.SetActive(true);
-    //            VillageCircle2.SetActive(true);
-    //            VillageCircle3.SetActive(true);
-    //            VillageCircle4.SetActive(true);
-    //            VillageCircle5.SetActive(true);
-    //            SecondCircle.SetActive(false);
 
-    //            Destroy(other.gameObject);
-
-    //        }
-
-    //    }
-
-
-    //}
+        // this is called to turn on the village circles after accepting the mission
 
     void TurnOnVillageDialogue()
     {
@@ -77,7 +59,7 @@ public class TurnOffDialogue : MonoBehaviour
 
     }
 
-
+    // these are called in fungus dialogue to turn off different dialogue circles
     void TurnDialogue1Off()
     {
         VillageCircle1.SetActive(false);
