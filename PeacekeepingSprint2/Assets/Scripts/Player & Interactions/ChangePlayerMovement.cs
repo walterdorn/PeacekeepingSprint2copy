@@ -39,6 +39,6 @@ public class ChangePlayerMovement : MonoBehaviour
         thirdPersonCharacterScript.m_MoveSpeedMultiplier = 1f;
         // freeLookCamera.SetActive(true);
 
-        thirdPersonCharacterScript.m_JumpPower = 6f;
+        thirdPersonCharacterScript.m_JumpPower = 7.5f;
     }
 }
