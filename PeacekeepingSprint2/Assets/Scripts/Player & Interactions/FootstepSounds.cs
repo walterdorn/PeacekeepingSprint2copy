@@ -18,10 +18,10 @@ public class FootstepSounds : MonoBehaviour
 
     private void OnTriggerEnter (Collider collision)
     {
-        //if (collision.gameObject.tag == "Ground")
-        //{
+        if (collision.gameObject.tag == "Player")
+        {
 
             GetComponent<AudioSource>().Play();
-        //}
+        }
     }
 }
