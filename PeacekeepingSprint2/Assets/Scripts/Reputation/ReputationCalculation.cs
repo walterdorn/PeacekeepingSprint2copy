@@ -43,13 +43,13 @@ public class ReputationCalculation : MonoBehaviour
             ChangeRep(-10, 10);
         }
 
-        if (Input.GetKeyDown(KeyCode.U))
+        if (Input.GetKeyDown(KeyCode.I))
         {
 
             ChangeRep(10, 10);
         }
 
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.U))
         {
 
             ChangeRep(-10, -10);

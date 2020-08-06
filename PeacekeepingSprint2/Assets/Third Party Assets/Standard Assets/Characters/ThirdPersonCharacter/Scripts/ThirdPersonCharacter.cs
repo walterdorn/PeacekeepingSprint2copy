@@ -205,8 +205,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             if (collision.gameObject.tag == "Riverbed")
             {
 
-                m_MoveSpeedMultiplier = 0.6f;
-                m_AnimSpeedMultiplier = 0.6f;
+                m_MoveSpeedMultiplier = 0.67f;
+                m_AnimSpeedMultiplier = 0.67f;
             }
         }
 
