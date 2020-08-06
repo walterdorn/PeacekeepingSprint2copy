@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class BinocularMovement : MonoBehaviour
 {
-    private float xAxisClamp; 
-    
-        // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private float xAxisClamp;   
 
     // Update is called once per frame
     void Update()

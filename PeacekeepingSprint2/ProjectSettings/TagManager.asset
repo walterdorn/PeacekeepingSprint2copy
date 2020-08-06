@@ -17,6 +17,7 @@ TagManager:
   - PressF
   - Car
   - Riverbed
+  - GuardTower2
   layers:
   - Default
   - TransparentFX
