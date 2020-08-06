@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class BinocularMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private float xAxisClamp; 
+    
+        // Start is called before the first frame update
     void Start()
     {
         
@@ -17,8 +19,27 @@ public class BinocularMovement : MonoBehaviour
         float mouseY = (Input.mousePosition.y / Screen.height) - 0.5f;
         transform.localRotation = Quaternion.Euler(new Vector4(-1f * (mouseY * 180f), mouseX * 360f, transform.localRotation.z));
 
+        xAxisClamp += mouseY;
+        if(xAxisClamp > 90.0f)
+        {
+            xAxisClamp = 90.0f;
+            mouseY = 0.0f;
+            ClampxAxisRotationToValue(270.0f);
+        }
+        else if (xAxisClamp < -90.0f)
+        {
+            xAxisClamp = -90.0f;
+            mouseY = 0.0f;
+            ClampxAxisRotationToValue(90.0f);
+        }
+
         Cursor.visible = false;
     }
 
-
+    private void ClampxAxisRotationToValue(float value)
+    {
+        Vector3 eulerRotation = transform.eulerAngles;
+        eulerRotation.x = value;
+        transform.eulerAngles = eulerRotation;
+    } 
 }
