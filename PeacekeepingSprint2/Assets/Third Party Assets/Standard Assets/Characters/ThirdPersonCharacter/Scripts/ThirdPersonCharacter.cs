@@ -189,17 +189,41 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			// we implement this function to override the default root motion.
 			// this allows us to modify the positional speed before it's applied.
 			if (m_IsGrounded && Time.deltaTime > 0)
-			{
+            {
 				Vector3 v = (m_Animator.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
 
 				// we preserve the existing y part of the current velocity.
 				v.y = m_Rigidbody.velocity.y;
 				m_Rigidbody.velocity = v;
 			}
-		}
+        }
+
+        //if the player is in water, half the movement and animation speeds
+        private void OnCollisionStay(Collision collision)
+        {
+            
+            if (collision.gameObject.tag == "Riverbed")
+            {
+
+                m_MoveSpeedMultiplier = 0.6f;
+                m_AnimSpeedMultiplier = 0.6f;
+            }
+        }
+
+        //if the player exits the water, return the movement and animation speeds to normal values
+        private void OnCollisionExit(Collision collision)
+        {
+
+            if (collision.gameObject.tag == "Riverbed")
+            {
+
+                m_MoveSpeedMultiplier = 1;
+                m_AnimSpeedMultiplier = 1;
+            }
+        }
 
 
-		void CheckGroundStatus()
+        void CheckGroundStatus()
 		{
 			RaycastHit hitInfo;
 #if UNITY_EDITOR
