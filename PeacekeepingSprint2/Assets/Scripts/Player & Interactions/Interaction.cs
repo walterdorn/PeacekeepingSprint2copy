@@ -7,6 +7,8 @@ public class Interaction : MonoBehaviour
 {
     // this script is on Player
 
+    public AudioClip firstAidKitSound;
+
     // the UI TEXT
     public Text InteractText;
     public Text InteractText2;
@@ -60,6 +62,9 @@ public class Interaction : MonoBehaviour
         firstAidKitImage.enabled = false;
         tourniquetInKitImage.enabled = false;
 
+        GetComponent<AudioSource>().playOnAwake = false;
+        GetComponent<AudioSource>().clip = firstAidKitSound;
+
     }
 
     private void OnTriggerStay(Collider other)
@@ -68,6 +73,9 @@ public class Interaction : MonoBehaviour
         // can use Input.GetAxis and Input.GetButton (or Input.GetKeyDown)
         if (other.tag == "FirstAidKit" && Input.GetKeyDown(KeyCode.E))
         {
+            // play the open first aid kit sound
+            GetComponent<AudioSource>().Play();
+
             //Debug.Log("E key x1 - Pick up tourniquet in Interaction Script");             
             changePlayerMovementScript.GetComponent<ChangePlayerMovement>().StopMovement();
 
