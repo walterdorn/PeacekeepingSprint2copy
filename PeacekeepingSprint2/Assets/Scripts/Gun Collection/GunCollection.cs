@@ -30,6 +30,8 @@ public class GunCollection : MonoBehaviour
     public GameObject Weapon5;
     public GameObject Weapon6;
 
+    public GameObject WeaponMissionStart;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -182,5 +184,12 @@ void Update()
     {
 
         BigVillageCircle6.SetActive(false);
+    }
+
+    void TurnOffMainWeaponDialogue()
+    {
+
+        WeaponMissionStart.SetActive(false);
+        
     }
 }
