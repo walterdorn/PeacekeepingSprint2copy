@@ -41,7 +41,7 @@ public class Waypoint : MonoBehaviour
 
         if (woodGathered == true)
         {
-            GameObject.Find("ReputationBar").GetComponent<ReputationCalculation>().RepIncreaseBig();
+            //GameObject.Find("ReputationBar").GetComponent<ReputationCalculation>().RepIncreaseBig();
             SceneManager.LoadScene("Main_Scene");
 
         }

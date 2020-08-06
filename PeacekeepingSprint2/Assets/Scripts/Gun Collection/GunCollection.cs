@@ -114,7 +114,7 @@ void Update()
                 Instantiate(BurningGrounds, new Vector3(-39.1f, -1.0f, 93.11f), Quaternion.identity);
                 BurnTicket = 0;
 
-                GameObject.Find("ReputationBar").GetComponent<ReputationCalculation>().RepIncreaseBig();
+                //GameObject.Find("ReputationBar").GetComponent<ReputationCalculation>().RepIncreaseBig();
             }
 
         }

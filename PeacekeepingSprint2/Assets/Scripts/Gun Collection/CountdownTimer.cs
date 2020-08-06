@@ -33,7 +33,7 @@ public class CountdownTimer : MonoBehaviour
             if (repChange == true)
             {
 
-                GameObject.Find("ReputationBar").GetComponent<ReputationCalculation>().RepDecreaseBig();
+                //GameObject.Find("ReputationBar").GetComponent<ReputationCalculation>().RepDecreaseBig();
                 repChange = false;
             }
         }

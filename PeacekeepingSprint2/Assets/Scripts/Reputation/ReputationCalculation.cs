@@ -6,11 +6,13 @@ using Fungus;
 public class ReputationCalculation : MonoBehaviour
 {
 
+    //variables
     public int maxRep;
     public int minRep;
-    public int currentRep;
-    public int currentRep2;
+    public int ManancaRep;
+    public int KamboRep;
 
+    //reference to reputation bars in main canvas
     public ReputationBar repBar;
     public ReputationBar repBar2;
 
@@ -18,8 +20,9 @@ public class ReputationCalculation : MonoBehaviour
     void Start()
     {
 
-        currentRep = 50;
-        currentRep2 = 50;
+        //set starting reputation of both villages
+        ManancaRep = 50;
+        KamboRep = 50;
 
     }
 
@@ -27,6 +30,7 @@ public class ReputationCalculation : MonoBehaviour
     void Update()
     {
 
+        //shortcuts to test reputation
         if (Input.GetKeyDown(KeyCode.P))
         {
 
@@ -39,75 +43,74 @@ public class ReputationCalculation : MonoBehaviour
             ChangeRep(-10, 10);
         }
 
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+
+            ChangeRep(10, 10);
+        }
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+
+            ChangeRep(-10, -10);
+        }
+
     }
 
+    //method to be referenced to change the reputation - set limits to reputation
     void ChangeRep(int rep, int rep2)
     {
 
-        currentRep += rep;
-        currentRep2 += rep2;
+        ManancaRep += rep;
+        KamboRep += rep2;
 
-        repBar.SetRep(currentRep);
-        repBar2.SetRep(currentRep2);
+        repBar.SetRep(ManancaRep);
+        repBar2.SetRep(KamboRep);
 
-        if (currentRep >= 100)
+        if (ManancaRep >= 100)
         {
 
-            currentRep = 100;
+            ManancaRep = 100;
         }
 
-        if (currentRep <= 0)
+        if (ManancaRep <= 0)
         {
 
-            currentRep = 0;
+            ManancaRep = 0;
         }
 
-        if (currentRep2 >= 100)
+        if (KamboRep >= 100)
         {
 
-            currentRep2 = 100;
+            KamboRep = 100;
         }
 
-        if (currentRep2 <= 0)
+        if (KamboRep <= 0)
         {
 
-            currentRep2 = 0;
+            KamboRep = 0;
         }
     }
 
-    public void RepIncreaseTiny()
+    //increase Mananca reputation by 40, decrease Kambo by 20
+    public void UNMOMissionReward()
     {
 
-        ChangeRep(5, -5);
+        ChangeRep(40, -20);
     }
 
-    public void RepDecreaseTiny()
+    //Increase Kambo reputation by 40, decrease Mananca by 10
+    public void GunCollectionMissionReward()
     {
 
-        ChangeRep(-5, 5);
+        ChangeRep(40, -10);
     }
 
-    public void RepIncreaseSmall()
+    //increase Kambo by 30
+    public void FirstAidMissionReward()
     {
 
-        ChangeRep(10, -10);
+        ChangeRep(30, 0);
     }
 
-    public void RepDecreaseSmall()
-    {
-
-        ChangeRep(-10, 10);
-    }
-
-    public void RepIncreaseBig()
-    {
-
-        ChangeRep(20, -20);
-    }
-
-    public void RepDecreaseBig()
-    {
-
-        ChangeRep(-20, 20);
-    }
 }
