@@ -181,15 +181,6 @@ public class Interaction : MonoBehaviour
             InteractText2.enabled = false;
         }
 
-        //if (inTower)
-        //{
-        //    Debug.Log("inTower: " + inTower);
-
-        //    // Hide E, show F to interact
-        //    InteractText.enabled = false;
-        //    InteractText2.enabled = true;
-        //}
-
     }
 
     private void OnTriggerExit(Collider other)
