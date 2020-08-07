@@ -139,6 +139,8 @@ public class Interaction : MonoBehaviour
                 freeLookCamera.SetActive(false);
                 thirdPersonController.SetActive(false);
 
+                InteractText.enabled = false;
+                InteractText2.enabled = true;
             }
         }
 
