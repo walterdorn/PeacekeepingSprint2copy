@@ -17,8 +17,6 @@ public class Interaction : MonoBehaviour
     public bool tookTourniquet = false;
     bool ranCoroutine = false;
     bool ranCoroutine2 = false;
-    public bool ranCoroutine3 = false;
-    public bool ranCoroutine4 = false;
     bool colliding = false;
 
     public GameObject guardTowerCamera;
@@ -69,11 +67,6 @@ public class Interaction : MonoBehaviour
 
     }
 
-    //private void Update()
-    //{
-    //  Debug.Log("ranCoroutine: " + ranCoroutine + ", ranCoroutine2: "   + ranCoroutine2+   ", ranCoroutine3: "  + ranCoroutine3 + ", ranCoroutine4: " + ranCoroutine4);
-    //}
-
     private void OnTriggerStay(Collider other)
     {
         colliding = true;
@@ -94,7 +87,7 @@ public class Interaction : MonoBehaviour
             // this turns off the first mission zone in the first aid mission
             FirstAidMissionZone.SetActive(false);
 
-            // make the player wait for .5 second before being able to hit E again
+            // make the player wait for 1 second before being able to hit E again
             StartCoroutine(WaitCoroutine());
         }
 
@@ -117,6 +110,7 @@ public class Interaction : MonoBehaviour
             changePlayerMovementScript.GetComponent<ChangePlayerMovement>().StartMovement();
         }
 
+
         if (other.tag == "Casualty" && Input.GetKeyDown(KeyCode.E))
         {
             //Debug.Log("Use tourniquet");       
@@ -134,40 +128,41 @@ public class Interaction : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                //Debug.Log("GuardTower GetKeyDown in Interaction");
-
-                // if hit E, get into tower / swap cameras
+                //Debug.Log("Pressed E on Guard Tower");
                 inTower = true;
-
-                // set active on current guard tower camera
+                // set active on guard tower camera
                 guardTowerCamera.SetActive(true);
-                guardTowerCamera2.SetActive(false);
 
-                TurnOffCamerasForTowers();
-                StartCoroutine(WaitCoroutine3());
+                // set false on binocular, free look camera rig, third person controller
+                guardTowerCamera2.SetActive(false);
+                binocCamera.SetActive(false);
+                freeLookCamera.SetActive(false);
+                thirdPersonController.SetActive(false);
 
             }
         }
 
-        if (other.tag == "GuardTower2" )
+        if (other.tag == "GuardTower2")
         {
-            //Debug.Log("other.tag == GuardTower2 in Interaction");
+            //Debug.Log("Interact with Guard Tower");
 
-            if (Input.GetKeyDown(KeyCode.E) )
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                //Debug.Log("GuardTower2 GetKeyDown in Interaction");
+                //Debug.Log("Pressed E on Guard Tower");
                 inTower = true;
 
-                // set active on current guard tower camera
-                guardTowerCamera2.SetActive(true);              
+                // set active on guard tower camera
+                guardTowerCamera2.SetActive(true);
+
+                // set false on binocular, free look camera rig, third person controller
                 guardTowerCamera.SetActive(false);
-
-                TurnOffCamerasForTowers();
-
-                StartCoroutine(WaitCoroutine4());
+                binocCamera.SetActive(false);
+                freeLookCamera.SetActive(false);
+                thirdPersonController.SetActive(false);
 
             }
         }
+
 
     }
 
@@ -176,14 +171,14 @@ public class Interaction : MonoBehaviour
         // show E to interact only when colliding with objects with the following tags
         if (other.tag == "Weapon" || other.tag == "FirstAidKit" || other.tag == "GuardTower" || other.tag == "GuardTower2" || other.tag == "Casualty")
         {
-            //Debug.Log("OnTriggerEnter tags Interaction script");
+            Debug.Log("OnTriggerEnter tags Interaction script");
             InteractText.enabled = true;
             InteractText2.enabled = false;
         }
 
         if (inTower)
         {
-            //Debug.Log("inTower: " + inTower);
+            Debug.Log("inTower: " + inTower);
 
             // Hide E, show F to interact
             InteractText.enabled = false;
@@ -194,51 +189,28 @@ public class Interaction : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        // turn off E to interact text when player stops colliding
+        // turn off E to interact text when stop colliding
         InteractText.enabled = false;
         InteractText2.enabled = false;
         colliding = false;
 
     }
 
-    void TurnOffCamerasForTowers()
-    {
-        // set false on binocular, free look camera rig, third person controller
-        binocCamera.SetActive(false);
-        freeLookCamera.SetActive(false);
-        //thirdPersonController.SetActive(false);
-
-        // keep Player active but turn off movement while in tower
-        changePlayerMovementScript.GetComponent<ChangePlayerMovement>().StopMovement();
-
-    }
-
-    // trying to make it possible to hit E to interact for the first aid kit so they don't all activate at the same time
     IEnumerator WaitCoroutine()
     {
+
         yield return new WaitForSeconds(.05f);
         ranCoroutine = true;
+
     }
+
 
     IEnumerator WaitCoroutine2()
     {
+
         yield return new WaitForSeconds(.05f);
         ranCoroutine2 = true;
+
     }
 
-    IEnumerator WaitCoroutine3()
-    {
-        // for GuardTowerTop script
-        yield return new WaitForSeconds(.05f);
-        Debug.Log("WaitCoroutine3");
-        ranCoroutine3 = true;
-    }
-
-    IEnumerator WaitCoroutine4()
-    {
-        // for GuardTowerTop script
-        yield return new WaitForSeconds(.05f);
-        Debug.Log("WaitCoroutine4");
-        ranCoroutine4 = true;
-    }
 }

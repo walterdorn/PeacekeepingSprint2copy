@@ -110,7 +110,7 @@ public class Binoculars : MonoBehaviour
 
     public void Toggle()
     {
-        // binocCamera.SetActive(true);
+        
         // make boolean equal to opposite state (swap from true to false or vice versa)
         isActive = !isActive;
 

@@ -5,21 +5,16 @@ using UnityEngine.UI;
 
 public class GuardTowerTopScript : MonoBehaviour
 {
-    //references to scripts
-    // to start the player moving after being in a tower
-    public ChangePlayerMovement changePlayerMovementScript;
     public Interaction interactionScript;
-    public UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter thirdPersonCharacterScript;
-
-    // references to cameras and character controller
     public GameObject thirdPersonController;
-    public GameObject binocCamera;
+    public GameObject guardBinocCamera;
     public GameObject freeLookCamera;
     public GameObject guardTowerCamera;
 
-    // references to fungus dialogue trigger circles
     public GameObject BeginningCircle;
     public GameObject SecondCircle;
+
+    public UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter thirdPersonCharacterScript;
 
     void Start()
     {
@@ -27,9 +22,6 @@ public class GuardTowerTopScript : MonoBehaviour
         interactionScript = thirdPersonController.GetComponent<Interaction>();
         // get reference to the third person character controller in order to change the move speed multiplier variable.
         thirdPersonCharacterScript = thirdPersonController.GetComponent<UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter>();
-
-        // to start the player moving after being in a tower
-        changePlayerMovementScript = changePlayerMovementScript.GetComponent<ChangePlayerMovement>();
 
         // switch available dialogue circles
         SecondCircle.SetActive(false);
@@ -39,38 +31,32 @@ public class GuardTowerTopScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if hit E while in guard tower turn on third person controller
+        //Debug.Log("boolean inTower in LeaveGuardTower script: " + interactionScript.inTower);
+
+        // if hit E while in guard tower
+        // turn on third person controller
         if (guardTowerCamera)
         {
-            //Debug.Log("guardTowerCamera");
-
-            if (Input.GetKeyDown(KeyCode.E) && interactionScript.inTower == true)
+            if (interactionScript.inTower == true)
             {
 
-                //Debug.Log("interactionScript.inTower");
-
-                if (interactionScript.ranCoroutine3 == true || interactionScript.ranCoroutine4 == true)
+                if (Input.GetKeyDown(KeyCode.F) && interactionScript.inTower == true)
                 {
 
-                    //Debug.Log("interactionScript.ranCoroutine3 and 4");
+                    //Debug.Log("Pressed E on GuardTowerTop");
 
                     // set false on binocular, free look camera rig, third person controller
-                    binocCamera.SetActive(false);
+                    guardBinocCamera.SetActive(false);
                     freeLookCamera.SetActive(true);
-                    //thirdPersonController.SetActive(true);
-                    changePlayerMovementScript.GetComponent<ChangePlayerMovement>().StartMovement();
+                    thirdPersonController.SetActive(true);
 
                     // set active on guard tower camera
                     guardTowerCamera.SetActive(false);
 
-                    // swap which circle is active
                     SecondCircle.SetActive(true);
                     BeginningCircle.SetActive(false);
 
-                    // to get in and out of tower, set these booleans in Interaction script to false
                     interactionScript.inTower = false;
-                    interactionScript.ranCoroutine3 = false;
-                    interactionScript.ranCoroutine4 = false;
 
                 }
 
