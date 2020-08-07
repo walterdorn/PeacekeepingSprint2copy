@@ -14,7 +14,12 @@ public class SwitchBetweenFungusDialogue : MonoBehaviour
 
     public GameObject firstAidKitCircle;
 
-    public GameObject casualtiesCarCrashCircle;    
+    public GameObject casualtiesCarCrashCircle;
+
+    // to destory casualty and crashed car game objects after quest complete
+    public GameObject casualty1;
+    public GameObject casualty2;
+    public GameObject carCrash;
     
 
     // Start is called before the first frame update
@@ -60,6 +65,12 @@ public class SwitchBetweenFungusDialogue : MonoBehaviour
 
     void TurnOffFinalCasualtyDialogue()
     {
+        Destroy(casualty1, 1);
+        Destroy(casualty2, 1);
+        Destroy(carCrash, 1);
+        casualtiesCarCrashCircle.SetActive(false);
+
         CarCrashCircle3.SetActive(false);
+
     }
 }
