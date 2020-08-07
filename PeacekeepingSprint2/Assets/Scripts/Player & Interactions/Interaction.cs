@@ -160,6 +160,9 @@ public class Interaction : MonoBehaviour
                 freeLookCamera.SetActive(false);
                 thirdPersonController.SetActive(false);
 
+                InteractText.enabled = false;
+                InteractText2.enabled = true;
+
             }
         }
 
@@ -176,14 +179,14 @@ public class Interaction : MonoBehaviour
             InteractText2.enabled = false;
         }
 
-        if (inTower)
-        {
-            Debug.Log("inTower: " + inTower);
+        //if (inTower)
+        //{
+        //    Debug.Log("inTower: " + inTower);
 
-            // Hide E, show F to interact
-            InteractText.enabled = false;
-            InteractText2.enabled = true;
-        }
+        //    // Hide E, show F to interact
+        //    InteractText.enabled = false;
+        //    InteractText2.enabled = true;
+        //}
 
     }
 
