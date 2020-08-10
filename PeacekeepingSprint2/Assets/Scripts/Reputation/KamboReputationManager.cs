@@ -25,8 +25,10 @@ public class KamboReputationManager : MonoBehaviour
     void Update()
     {
 
+        //grab Kambo Reputation variable
         float KamboRep = GameObject.Find("ReputationBar").GetComponent<ReputationCalculation>().KamboRep;
 
+        //if Manana Reputation is in the red (sub 40), instantiate blockades, etc.
         if (KamboRep <= 40 & mapChanging == true)
         {
 
@@ -39,11 +41,13 @@ public class KamboReputationManager : MonoBehaviour
             mapChanging = false;
         }
 
+        //if it's neutral, destroy all instantiated objects
         else if (KamboRep > 40 && KamboRep < 70)
         {
 
             int children = transform.childCount;
 
+            //for loop to go through instantiate child objects and destroy them
             for (int i = children - 1; i >= 0; i--)
             {
                 GameObject.Destroy(transform.GetChild(i).gameObject);
@@ -52,6 +56,7 @@ public class KamboReputationManager : MonoBehaviour
             mapChanging = true;
         }
 
+        //if it's positive
         else if (KamboRep > 70 && KamboRep < 100 & mapChanging == true)
         {
 

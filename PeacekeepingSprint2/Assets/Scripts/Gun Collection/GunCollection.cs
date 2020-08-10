@@ -32,6 +32,8 @@ public class GunCollection : MonoBehaviour
 
     public GameObject WeaponMissionStart;
 
+    public GameObject ReputationBar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,7 +61,7 @@ public class GunCollection : MonoBehaviour
 void Update()
     {
         CollectGuns();
-        BurningGuns();
+        //BurningGuns();
         
     }
 
@@ -76,7 +78,7 @@ void Update()
 
         }
 
-        if (other.tag == "BurningGrounds" )
+        else if (other.tag == "BurningGrounds")   
         {
             BurningGuns();
 
@@ -115,7 +117,9 @@ void Update()
                 Instantiate(BurningGrounds, new Vector3(-39.1f, -1.0f, 93.11f), Quaternion.identity);
                 BurnTicket = 0;
 
-                
+                ReputationBar.GetComponent<ReputationCalculation>().GunCollectionMissionReward();
+
+
             }
 
         }

@@ -34,24 +34,28 @@ public class ReputationCalculation : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
 
+            //mananca up, kambo down
             ChangeRep(10, -10);
         }
 
         if (Input.GetKeyDown(KeyCode.O))
         {
 
+            //mananca down, kambo up
             ChangeRep(-10, 10);
         }
 
         if (Input.GetKeyDown(KeyCode.I))
         {
 
+            //both up
             ChangeRep(10, 10);
         }
 
         if (Input.GetKeyDown(KeyCode.U))
         {
 
+            //both down
             ChangeRep(-10, -10);
         }
 
@@ -61,12 +65,13 @@ public class ReputationCalculation : MonoBehaviour
     void ChangeRep(int rep, int rep2)
     {
 
+        //reputation variables, reference to reputation bar method
         ManancaRep += rep;
         KamboRep += rep2;
-
         repBar.SetRep(ManancaRep);
         repBar2.SetRep(KamboRep);
 
+        //limits
         if (ManancaRep >= 100)
         {
 
@@ -92,25 +97,25 @@ public class ReputationCalculation : MonoBehaviour
         }
     }
 
-    //increase Mananca reputation by 40, decrease Kambo by 20
+    //increase Mananca reputation by 40, decrease Kambo by 20 --- UNMNO Attack on Civilians Quest Reward
     public void UNMOMissionReward()
     {
 
         ChangeRep(40, -20);
     }
 
-    //Increase Kambo reputation by 40, decrease Mananca by 10
+    //Increase Kambo reputation by 40, decrease Mananca by 10 --- Gun Collection Quest Reward
     public void GunCollectionMissionReward()
     {
 
-        ChangeRep(40, -10);
+        ChangeRep(10, 40);
     }
 
-    //increase Kambo by 30
+    //increase Kambo by 30 --- First Aid Quest Reward
     public void FirstAidMissionReward()
     {
 
-        ChangeRep(30, 0);
+        ChangeRep(-20, 30);
     }
 
 }

@@ -26,8 +26,10 @@ public class ManancaReputationImpact : MonoBehaviour
     void Update()
     {
 
+        //grab Mananca Reputation variable
         float ManancaRep = GameObject.Find("ReputationBar").GetComponent<ReputationCalculation>().ManancaRep;
 
+        //if Manana Reputation is in the red (sub 40), instantiate blockade on the bridge
         if (ManancaRep <= 40 & mapChanging == true)
         {
 
@@ -36,11 +38,13 @@ public class ManancaReputationImpact : MonoBehaviour
             mapChanging = false;
         }
 
+        //if it's neutral, destroy all instantiated objects
         else if (ManancaRep > 40 && ManancaRep < 70)
         {
 
             int children = transform.childCount;
 
+            //for loop to go through instantiate child objects and destroy them
             for (int i = children - 1; i >= 0; i--)
             {
                 GameObject.Destroy(transform.GetChild(i).gameObject);
@@ -49,6 +53,7 @@ public class ManancaReputationImpact : MonoBehaviour
             mapChanging = true;
         }
 
+        //if it's positive
         else if (ManancaRep > 70 && ManancaRep < 100 & mapChanging == true)
         {
 
