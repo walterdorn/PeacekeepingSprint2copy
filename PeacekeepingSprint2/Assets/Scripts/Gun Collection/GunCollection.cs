@@ -12,6 +12,10 @@ public class GunCollection : MonoBehaviour
 
     public GameObject Logs;
 
+    public GameObject DancingVillagers;
+
+    public Interaction interactionScript;
+
     public int BurnTicket;
 
 
@@ -37,6 +41,8 @@ public class GunCollection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        interactionScript = GetComponent<Interaction>();
         // turn off the cirles when the game begins
 
         BigVillageCircle1.SetActive(false);
@@ -74,6 +80,7 @@ void Update()
             gunsCollected++;
             Debug.Log("Gun Collected");
 
+            interactionScript.InteractText.enabled = false;
             Destroy(other.gameObject);
 
         }
@@ -116,6 +123,7 @@ void Update()
             if(BurnTicket == 1)
             {
                 Instantiate(BurningGrounds, new Vector3(-39.1f, -1.0f, 93.11f), Quaternion.identity);
+                Instantiate(DancingVillagers, new Vector3(-13f, -0.3f, 69f), Quaternion.identity);
                 BurnTicket = 0;
 
                 ReputationBar.GetComponent<ReputationCalculation>().GunCollectionMissionReward();

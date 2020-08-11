@@ -176,7 +176,7 @@ public class Interaction : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // show E to interact only when colliding with objects with the following tags
-        if (other.tag == "Weapon" || other.tag == "FirstAidKit" || other.tag == "GuardTower" || other.tag == "GuardTower2" || other.tag == "Casualty")
+        if (other.tag == "Weapon" || other.tag == "FirstAidKit" || other.tag == "GuardTower" || other.tag == "GuardTower2" || other.tag == "Casualty" || other.tag == "BurningGrounds")
         {
             Debug.Log("OnTriggerEnter tags Interaction script");
             InteractText.enabled = true;
