@@ -5,6 +5,7 @@ using UnityEngine;
 public class Minimap : MonoBehaviour
 {
 
+    //reference player transform for position
     public Transform player;
 
 

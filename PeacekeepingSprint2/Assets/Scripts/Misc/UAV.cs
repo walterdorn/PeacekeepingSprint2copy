@@ -5,18 +5,16 @@ using UnityEngine;
 public class UAV : MonoBehaviour
 {
 
+    ////////CURRENTLY NO PLANS FOR UAV IN GAME////////
+
+    //variables
     public float Speed = 0;
     public float sensitivity = 10f;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
+        
+        //controls and speed
         float xAxisValue = Input.GetAxis("Horizontal") * Speed;
         float zAxisValue = Input.GetAxis("Vertical") * Speed;
         float yValue = 0.0f;
@@ -30,6 +28,7 @@ public class UAV : MonoBehaviour
             yValue = Speed;
         }
 
+        //movement
         transform.position = new Vector3(transform.position.x + xAxisValue, transform.position.y + yValue, transform.position.z + zAxisValue);
         
     }

@@ -8,6 +8,8 @@ public class ReloadScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //if the key R is pressedd, reload the scene, meant to be used in the Main_Scene, also resets approval/reputation
         if (Input.GetKeyDown("r"))
         {
             Debug.Log("Reload Scene");
