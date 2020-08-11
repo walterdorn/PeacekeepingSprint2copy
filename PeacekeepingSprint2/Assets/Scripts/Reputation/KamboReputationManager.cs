@@ -35,7 +35,6 @@ public class KamboReputationManager : MonoBehaviour
             Instantiate(object1, position1.transform.position, Quaternion.identity, this.gameObject.transform);
             Instantiate(object2, position2.transform.position, Quaternion.identity, this.gameObject.transform);
             Instantiate(object3, position3.transform.position, Quaternion.identity, this.gameObject.transform);
-            Instantiate(object4, position4.transform.position, Quaternion.identity, this.gameObject.transform);
             Instantiate(object5, position5.transform.position, Quaternion.identity, this.gameObject.transform);
 
             mapChanging = false;

@@ -34,6 +34,7 @@ public class ManancaReputationImpact : MonoBehaviour
         {
 
             Instantiate(object6, position6.transform.position, Quaternion.identity, this.gameObject.transform);
+            Instantiate(object4, position4.transform.position, Quaternion.identity, this.gameObject.transform);
 
             mapChanging = false;
         }
