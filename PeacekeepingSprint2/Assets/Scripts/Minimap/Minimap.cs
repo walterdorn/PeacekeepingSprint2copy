@@ -10,6 +10,7 @@ public class Minimap : MonoBehaviour
 
      void LateUpdate()
     {
+        // follow the player from a variable distance above them
         Vector3 newPosition = player.position;
         newPosition.y = transform.position.y;
         transform.position = newPosition;

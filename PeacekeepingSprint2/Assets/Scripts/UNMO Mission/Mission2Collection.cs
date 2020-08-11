@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Mission2Collection : MonoBehaviour
 {
+
+    // if you collide with the circle the corresponding circle gives you specific dialogue associated with the character
     private void OnTriggerEnter(Collider other)
     {
         Fungus.Flowchart.BroadcastFungusMessage("Mission2Start");

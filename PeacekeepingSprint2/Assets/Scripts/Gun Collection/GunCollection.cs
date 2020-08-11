@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GunCollection : MonoBehaviour
 {
-
+    // variables used
     public int gunsCollected;
 
     public GameObject BurningGrounds;
@@ -37,7 +37,7 @@ public class GunCollection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        // turn off the cirles when the game begins
 
         BigVillageCircle1.SetActive(false);
         BigVillageCircle2.SetActive(false);
@@ -87,7 +87,7 @@ void Update()
 
     }
 
-    
+    // if the players colelct 6 guns they gain a burning ticket which they can use to start the fire
 
     public void CollectGuns()
     {
@@ -106,6 +106,7 @@ void Update()
     }
 
     
+    // if players hit e and have collected all the guns they will be able to start the fire
 
     public void BurningGuns()
     {
@@ -129,7 +130,7 @@ void Update()
     
     
 
-
+    // this is the method called after players accept the mission 
     void TurnOnVillageWeaponDialogue()
     {
         BigVillageCircle1.SetActive(true);
