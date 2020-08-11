@@ -19,6 +19,7 @@ public class TurnOffDialogue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // start with all villager dialogue set to false
         VillageCircle1.SetActive(false);
         VillageCircle2.SetActive(false);
         VillageCircle3.SetActive(false);
@@ -43,19 +44,14 @@ public class TurnOffDialogue : MonoBehaviour
         }
     }
 
-
-
-        // this is called to turn on the village circles after accepting the mission
-
+    // this is called to turn on the village circles after accepting the mission
     void TurnOnVillageDialogue()
     {
         VillageCircle1.SetActive(true);
         VillageCircle2.SetActive(true);
         VillageCircle3.SetActive(true);
         VillageCircle4.SetActive(true);
-        VillageCircle5.SetActive(true);
-        //SecondCircle.SetActive(false);
-
+        VillageCircle5.SetActive(true);  
 
     }
 
@@ -64,11 +60,7 @@ public class TurnOffDialogue : MonoBehaviour
     {
         VillageCircle1.SetActive(false);
 
-
-        VillagersTalkedTo = VillagersTalkedTo + 1;
-
-      
-
+        VillagersTalkedTo = VillagersTalkedTo + 1;     
 
     }
 
@@ -106,8 +98,6 @@ public class TurnOffDialogue : MonoBehaviour
 
         VillagersTalkedTo = VillagersTalkedTo + 1;
     }
-
-
 
 
 }

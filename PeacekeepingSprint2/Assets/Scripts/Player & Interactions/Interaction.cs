@@ -139,6 +139,7 @@ public class Interaction : MonoBehaviour
                 freeLookCamera.SetActive(false);
                 thirdPersonController.SetActive(false);
 
+                // use Interact text 2
                 InteractText.enabled = false;
                 InteractText2.enabled = true;
             }
@@ -162,6 +163,7 @@ public class Interaction : MonoBehaviour
                 freeLookCamera.SetActive(false);
                 thirdPersonController.SetActive(false);
 
+                // use Interact text 2
                 InteractText.enabled = false;
                 InteractText2.enabled = true;
 

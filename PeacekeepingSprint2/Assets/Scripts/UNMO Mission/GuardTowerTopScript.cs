@@ -43,9 +43,9 @@ public class GuardTowerTopScript : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.F) && interactionScript.inTower == true)
                 {
 
-                    //Debug.Log("Pressed E on GuardTowerTop");
+                    //Debug.Log("Pressed E on GuardTowerTop script");
 
-                    // set false on binocular, free look camera rig, third person controller
+                    // set false on binocular, true on free look camera rig, third person controller
                     guardBinocCamera.SetActive(false);
                     freeLookCamera.SetActive(true);
                     thirdPersonController.SetActive(true);
@@ -53,9 +53,11 @@ public class GuardTowerTopScript : MonoBehaviour
                     // set active on guard tower camera
                     guardTowerCamera.SetActive(false);
 
+                    // swap which circle is active
                     SecondCircle.SetActive(true);
                     BeginningCircle.SetActive(false);
 
+                    // set the boolean inTower to false in Interaction script
                     interactionScript.inTower = false;
 
                 }

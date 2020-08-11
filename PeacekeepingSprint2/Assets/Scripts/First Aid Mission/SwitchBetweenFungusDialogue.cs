@@ -6,21 +6,20 @@ public class SwitchBetweenFungusDialogue : MonoBehaviour
 {
     // this script is on Car Crash First Aid
 
+    // reference to Interaction script
     public Interaction interaction;
 
+    // references to Fungus dialogue circles
     public GameObject CarCrashCircle1;
     public GameObject CarCrashCircle2;
     public GameObject CarCrashCircle3;
-
     public GameObject firstAidKitCircle;
-
     public GameObject casualtiesCarCrashCircle;
 
-    // to destory casualty and crashed car game objects after quest complete
+    // to destroy casualty and crashed car game objects after quest complete
     public GameObject casualty1;
     public GameObject casualty2;
-    public GameObject carCrash;
-    
+    public GameObject carCrash;    
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +35,7 @@ public class SwitchBetweenFungusDialogue : MonoBehaviour
 
     }
 
+    // called from Fungus during Car Crash First Aid quest
     void TurnOnRadioDialogue()
     {
         //Debug.Log("TurnOnRadioDialgoue CarCrashCircle2 active");
@@ -43,6 +43,7 @@ public class SwitchBetweenFungusDialogue : MonoBehaviour
         CarCrashCircle2.SetActive(true);
     }
 
+    // called from Fungus during Car Crash First Aid quest
     void TurnOffRadioDialogue()
     {
         //Debug.Log("TurnOffRadioDialogue CarCrashCircle3 active");
@@ -50,12 +51,14 @@ public class SwitchBetweenFungusDialogue : MonoBehaviour
         firstAidKitCircle.SetActive(true);
     }
 
+    // called from Fungus during Car Crash First Aid quest
     public void TurnOnFinalCasualtyDialogue()
     {
         CarCrashCircle3.SetActive(true);
         casualtiesCarCrashCircle.SetActive(false);
     }
 
+    // called from Fungus during Car Crash First Aid quest
     public void TurnOffFirstAidCircle()
     {
         firstAidKitCircle.SetActive(false);
@@ -63,11 +66,14 @@ public class SwitchBetweenFungusDialogue : MonoBehaviour
 
     }
 
+    // called from Fungus during Car Crash First Aid quest
     void TurnOffFinalCasualtyDialogue()
     {
+        // remove the casualty npcs and the car on fire after quest complete
         Destroy(casualty1, 1);
         Destroy(casualty2, 1);
         Destroy(carCrash, 1);
+
         casualtiesCarCrashCircle.SetActive(false);
 
         CarCrashCircle3.SetActive(false);
