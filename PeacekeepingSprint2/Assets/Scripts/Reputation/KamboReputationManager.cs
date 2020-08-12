@@ -12,6 +12,7 @@ public class KamboReputationManager : MonoBehaviour
     public GameObject position5;
     public GameObject position6;
     public GameObject position7;
+    public GameObject position8;
 
     //instantiable objects
     public GameObject object1;
@@ -21,6 +22,7 @@ public class KamboReputationManager : MonoBehaviour
     public GameObject object5;
     public GameObject object6;
     public GameObject object7;
+    public GameObject object8;
 
     bool mapChanging = true;
 

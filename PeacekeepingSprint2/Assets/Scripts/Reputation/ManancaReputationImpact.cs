@@ -13,6 +13,7 @@ public class ManancaReputationImpact : MonoBehaviour
     public GameObject position5;
     public GameObject position6;
     public GameObject position7;
+    public GameObject position8;
 
     //instantiable objects
     public GameObject object1;
@@ -22,6 +23,7 @@ public class ManancaReputationImpact : MonoBehaviour
     public GameObject object5;
     public GameObject object6;
     public GameObject object7;
+    public GameObject object8;
 
     bool mapChanging = true;   
 
@@ -56,9 +58,11 @@ public class ManancaReputationImpact : MonoBehaviour
             mapChanging = true;
         }
 
-        //if it's positive
+        //if it's positive, instantiate applause/celebration
         else if (ManancaRep >= 70 && ManancaRep < 100 & mapChanging == true)
         {
+
+            Instantiate(object8, position8.transform.position, Quaternion.identity, this.gameObject.transform);
 
             mapChanging = false;
         }
