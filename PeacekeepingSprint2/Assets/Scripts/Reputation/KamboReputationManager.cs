@@ -11,6 +11,7 @@ public class KamboReputationManager : MonoBehaviour
     public GameObject position4;
     public GameObject position5;
     public GameObject position6;
+    public GameObject position7;
 
     //instantiable objects
     public GameObject object1;
@@ -19,6 +20,7 @@ public class KamboReputationManager : MonoBehaviour
     public GameObject object4;
     public GameObject object5;
     public GameObject object6;
+    public GameObject object7;
 
     bool mapChanging = true;
 
@@ -55,9 +57,11 @@ public class KamboReputationManager : MonoBehaviour
             mapChanging = true;
         }
 
-        //if it's positive
-        else if (KamboRep > 70 && KamboRep < 100 & mapChanging == true)
+        //if it's positive, instantiate dance party
+        else if (KamboRep >= 70 && KamboRep < 100 & mapChanging == true)
         {
+
+            Instantiate(object7, position7.transform.position, Quaternion.identity, this.gameObject.transform);
 
             mapChanging = false;
         }

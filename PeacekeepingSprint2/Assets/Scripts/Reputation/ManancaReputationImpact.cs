@@ -12,6 +12,7 @@ public class ManancaReputationImpact : MonoBehaviour
     public GameObject position4;
     public GameObject position5;
     public GameObject position6;
+    public GameObject position7;
 
     //instantiable objects
     public GameObject object1;
@@ -20,6 +21,7 @@ public class ManancaReputationImpact : MonoBehaviour
     public GameObject object4;
     public GameObject object5;
     public GameObject object6;
+    public GameObject object7;
 
     bool mapChanging = true;   
 
@@ -55,7 +57,7 @@ public class ManancaReputationImpact : MonoBehaviour
         }
 
         //if it's positive
-        else if (ManancaRep > 70 && ManancaRep < 100 & mapChanging == true)
+        else if (ManancaRep >= 70 && ManancaRep < 100 & mapChanging == true)
         {
 
             mapChanging = false;
