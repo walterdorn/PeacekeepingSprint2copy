@@ -19,7 +19,11 @@ public class SwitchBetweenFungusDialogue : MonoBehaviour
     // to destroy casualty and crashed car game objects after quest complete
     public GameObject casualty1;
     public GameObject casualty2;
-    public GameObject carCrash;    
+    public GameObject carCrash;
+
+    // For after Car Crash First Aid quest is done, spawn an APC for CASEVAC (no quest associated)
+    public GameObject positionForAPC;
+    public GameObject APCGameObject;
 
     // Start is called before the first frame update
     void Start()
@@ -75,6 +79,8 @@ public class SwitchBetweenFungusDialogue : MonoBehaviour
         Destroy(carCrash, 1);
 
         casualtiesCarCrashCircle.SetActive(false);
+
+        Instantiate(APCGameObject, positionForAPC.transform.position, Quaternion.identity, this.gameObject.transform);
 
         CarCrashCircle3.SetActive(false);
 
