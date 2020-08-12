@@ -80,7 +80,8 @@ public class SwitchBetweenFungusDialogue : MonoBehaviour
 
         casualtiesCarCrashCircle.SetActive(false);
 
-        Instantiate(APCGameObject, positionForAPC.transform.position, Quaternion.identity, this.gameObject.transform);
+        //Instantiate(APCGameObject, positionForAPC.transform.position, Quaternion.identity, this.gameObject.transform);
+        Instantiate(APCGameObject, positionForAPC.transform.position, Quaternion.Euler(0f, 90f, 0f), this.gameObject.transform);
 
         CarCrashCircle3.SetActive(false);
 

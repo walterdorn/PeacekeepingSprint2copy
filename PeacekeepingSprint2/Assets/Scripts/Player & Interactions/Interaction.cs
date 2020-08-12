@@ -116,6 +116,9 @@ public class Interaction : MonoBehaviour
             //Debug.Log("Use tourniquet");       
             switchBetweenFungusDialogue.GetComponent<SwitchBetweenFungusDialogue>().TurnOnFinalCasualtyDialogue();
 
+            // play a sound when use tourniquet
+            GetComponent<AudioSource>().Play();
+
             // when use tourniquet, turn off image in inventory
             tourniquetImage.enabled = false;
             firstAidKitImage.enabled = false;
