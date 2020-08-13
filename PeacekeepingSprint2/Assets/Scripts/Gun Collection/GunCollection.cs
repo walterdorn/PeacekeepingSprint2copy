@@ -123,7 +123,7 @@ void Update()
             if(BurnTicket == 1)
             {
                 Instantiate(BurningGrounds, new Vector3(-39.1f, -1.0f, 93.11f), Quaternion.identity);
-                Instantiate(DancingVillagers, new Vector3(-13f, -0.3f, 69f), Quaternion.identity);
+                Instantiate(DancingVillagers, new Vector3(-16f, -0.3f, 80f), Quaternion.Euler(0f,-75f,0f));
                 BurnTicket = 0;
 
                 ReputationBar.GetComponent<ReputationCalculation>().GunCollectionMissionReward();
