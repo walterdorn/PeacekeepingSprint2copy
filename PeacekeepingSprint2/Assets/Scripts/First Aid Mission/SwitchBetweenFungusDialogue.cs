@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SwitchBetweenFungusDialogue : MonoBehaviour
 {
     // this script is on Car Crash First Aid
+
+    // to try and get rid of text that pops up after tourniquet
+    public Text InteractText;
 
     // reference to Interaction script
     public Interaction interaction;
@@ -25,6 +29,9 @@ public class SwitchBetweenFungusDialogue : MonoBehaviour
     public GameObject positionForAPC;
     public GameObject APCGameObject;
 
+    // reference to image to hide tourniquet after mission over
+    public Image tourniquetImage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,8 +41,6 @@ public class SwitchBetweenFungusDialogue : MonoBehaviour
         CarCrashCircle3.SetActive(false);
         firstAidKitCircle.SetActive(false);
         casualtiesCarCrashCircle.SetActive(false);
-
-        // Debug.Log("SwitchBetween script");
 
     }
 
@@ -67,7 +72,6 @@ public class SwitchBetweenFungusDialogue : MonoBehaviour
     {
         firstAidKitCircle.SetActive(false);
         casualtiesCarCrashCircle.SetActive(true);
-
     }
 
     // called from Fungus during Car Crash First Aid quest
@@ -79,11 +83,20 @@ public class SwitchBetweenFungusDialogue : MonoBehaviour
         Destroy(carCrash, 1);
 
         casualtiesCarCrashCircle.SetActive(false);
-
-        //Instantiate(APCGameObject, positionForAPC.transform.position, Quaternion.identity, this.gameObject.transform);
+       
         Instantiate(APCGameObject, positionForAPC.transform.position, Quaternion.Euler(0f, 90f, 0f), this.gameObject.transform);
 
         CarCrashCircle3.SetActive(false);
+
+        // to try and get rid of interaction text if it's still showing
+        InteractText.enabled = false;
+
+    }
+
+    public void TurnOffTourniquetImage()
+    {
+        // turn off casualties
+        tourniquetImage.enabled = false;
 
     }
 }

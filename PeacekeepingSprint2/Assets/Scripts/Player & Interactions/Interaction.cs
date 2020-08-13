@@ -65,6 +65,7 @@ public class Interaction : MonoBehaviour
         GetComponent<AudioSource>().playOnAwake = false;
         GetComponent<AudioSource>().clip = firstAidKitSound;
 
+    
     }
 
     private void OnTriggerStay(Collider other)
@@ -121,7 +122,7 @@ public class Interaction : MonoBehaviour
 
             // when use tourniquet, turn off image in inventory
             tourniquetImage.enabled = false;
-            firstAidKitImage.enabled = false;
+            firstAidKitImage.enabled = false;     
 
         }
 
