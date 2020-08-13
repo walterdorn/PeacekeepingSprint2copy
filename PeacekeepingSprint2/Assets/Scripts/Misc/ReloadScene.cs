@@ -12,8 +12,8 @@ public class ReloadScene : MonoBehaviour
         //if the key R is pressedd, reload the scene, meant to be used in the Main_Scene, also resets approval/reputation
         if (Input.GetKeyDown("r"))
         {
-            Debug.Log("Reload Scene");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+           // Debug.Log("Reload Scene");
+            SceneManager.LoadScene("Menu");
         }
     }
 }
